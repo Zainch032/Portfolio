@@ -2,6 +2,10 @@
 
 A modern, responsive portfolio website showcasing my journey as a Data Scientist and ML Engineer. Built with React, Vite, and Tailwind CSS.
 
+## 🌐 Live Demo
+
+Deployed at: [portfolio-chi-indol-djydsn6pu8.vercel.app](https://portfolio-chi-indol-djydsn6pu8.vercel.app/)
+
 ## ✨ Features
 
 - **Responsive Design**: Works seamlessly on all devices
