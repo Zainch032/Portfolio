@@ -22,31 +22,37 @@ export default function Portfolio() {
     'Tools & Cloud': ['Git', 'GitHub', 'AWS', 'VS Code', 'Scikit-learn', 'NLTK', 'Pandas', 'NumPy']
   };
 
-  const projects = [
-    {
-      title: 'Pakistan Prayer Assistant (Agentic AI)',
-      description: 'Engineered an Agentic AI using ReAct pattern to overcome LLM knowledge cutoffs with real-time API tool-calling for 100+ cities',
-      tech: ['Python', 'LangChain', 'Groq API', 'Flask', 'Aladhan API'],
-      github: 'https://github.com/Zainch032/My-prayer-Bot',
-      highlights: ['Eliminated hallucinations', 'Real-time tool calling', '3D UI design']
-    },
-    {
-      title: 'News Multi-Classification System',
-      description: 'End-to-end NLP project with EDA dashboard, trained 10 ML classifiers, and deployed Flask-based system for real-time predictions',
-      tech: ['Python', 'Scikit-learn', 'NLTK', 'TF-IDF', 'Flask', 'HTML/CSS'],
-      github: 'https://github.com/Zainch032/News-Classification-',
-      demo: 'https://zainch12.pythonanywhere.com',
-      highlights: ['90%+ accuracy', 'Custom NLP pipeline', 'Real-time predictions']
-    },
-    {
-      title: 'Car Price Prediction',
-      description: 'Built feature preprocessing workflow with advanced engineering techniques achieving R² ≈ 0.91',
-      tech: ['Python', 'Pandas', 'Scikit-learn', 'Feature Engineering'],
-      github: 'https://github.com/Zainch032/ML-Project',
-      highlights: ['R² ≈ 0.91', 'Advanced preprocessing', 'Noise reduction']
-    }
-  ];
-
+const projects = [
+  {
+    title: 'SmartPricer — Phone Price Predictor',
+    description: 'End-to-end ML project with extensive EDA, feature engineering from raw specs, XGBoost model, and deployed via FastAPI with a custom HTML/CSS/JS frontend',
+    tech: ['Python', 'XGBoost', 'FastAPI', 'Scikit-learn', 'Pandas', 'HTML/CSS/JS'],
+    github: 'https://github.com/Zainch032/SmartPricer',
+    highlights: ['24 engineered features', 'End-to-end deployment', 'PKR price prediction']
+  },
+  {
+    title: 'Pakistan Prayer Assistant (Agentic AI)',
+    description: 'Engineered an Agentic AI using ReAct pattern to overcome LLM knowledge cutoffs with real-time API tool-calling for 100+ cities',
+    tech: ['Python', 'LangChain', 'Groq API', 'Flask', 'Aladhan API'],
+    github: 'https://github.com/Zainch032/My-prayer-Bot',
+    highlights: ['Eliminated hallucinations', 'Real-time tool calling', '3D UI design']
+  },
+  {
+    title: 'News Multi-Classification System',
+    description: 'End-to-end NLP project with EDA dashboard, trained 10 ML classifiers, and deployed Flask-based system for real-time predictions',
+    tech: ['Python', 'Scikit-learn', 'NLTK', 'TF-IDF', 'Flask', 'HTML/CSS'],
+    github: 'https://github.com/Zainch032/News-Classification-',
+    demo: 'https://zainch12.pythonanywhere.com',
+    highlights: ['90%+ accuracy', 'Custom NLP pipeline', 'Real-time predictions']
+  },
+  {
+    title: 'Car Price Prediction',
+    description: 'Built feature preprocessing workflow with advanced engineering techniques achieving R² ≈ 0.91',
+    tech: ['Python', 'Pandas', 'Scikit-learn', 'Feature Engineering'],
+    github: 'https://github.com/Zainch032/ML-Project',
+    highlights: ['R² ≈ 0.91', 'Advanced preprocessing', 'Noise reduction']
+  }
+];
   const experience = [
     {
       role: 'NLP Intern',
