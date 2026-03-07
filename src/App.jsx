@@ -543,8 +543,8 @@ export default function Portfolio() {
                   marginBottom: "1.5rem",
                 }}
               >
-                I specialize in the full lifecycle of data, from **rigorous
-                Exploratory Data Analysis (EDA)** and feature engineering to
+                I specialize in the full lifecycle of data, from rigorous
+                Exploratory Data Analysis (EDA) and feature engineering to
                 deploying production-grade Machine Learning models. I believe
                 that a model is only as strong as the data insights that precede
                 it.
