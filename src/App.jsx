@@ -281,27 +281,6 @@ export default function Portfolio() {
           background: #6366f1;
           border-radius: 50%;
         }
-
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1.6fr 1fr;
-          gap: 4rem;
-          align-items: center;
-        }
-
-        .hero-metric {
-          justify-self: flex-end;
-        }
-
-        @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr;
-          }
-          .hero-metric {
-            justify-self: flex-start;
-            margin-top: 1.5rem;
-          }
-        }
       `}</style>
 
       {/* Nav */}
@@ -324,16 +303,45 @@ export default function Portfolio() {
               <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">{item}</a>
             ))}
           </div>
-          <a href="mailto:zc19398@gmail.com" className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.72rem' }}>
-            Hire Me
-          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.4rem' }}>
+            <a href="mailto:zc19398@gmail.com" className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.72rem' }}>
+              Hire Me
+            </a>
+            <div style={{
+              background: '#0c0c14',
+              border: '1px solid #1a1a2e',
+              borderRadius: 2,
+              padding: '0.6rem 0.9rem',
+              textAlign: 'right',
+              minWidth: 130
+            }}>
+              <div style={{
+                fontFamily: 'Syne, sans-serif',
+                fontWeight: 800,
+                fontSize: '1.1rem',
+                color: '#6366f1',
+                marginBottom: '0.1rem'
+              }}>
+                10+
+              </div>
+              <div style={{
+                fontFamily: 'DM Mono, monospace',
+                fontSize: '0.6rem',
+                color: '#888',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase'
+              }}>
+                ML & Data Science<br />Projects
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
 
       {/* Hero */}
       <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '0 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: 80 }}>
-          <div className="hero-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }}>
             <div>
               <div className="section-label" style={{ marginBottom: '1.5rem' }}>
                 Open to roles in Data Science, ML & Agentic AI
@@ -368,36 +376,6 @@ export default function Portfolio() {
                 <span>📍 Lahore, PK</span>
                 <span>🎓 3.35 CGPA</span>
                 <span>💼 NLP Intern</span>
-              </div>
-            </div>
-
-            <div className="hero-metric">
-              <div style={{
-                background: '#0c0c14',
-                border: '1px solid #1a1a2e',
-                borderRadius: 2,
-                padding: '1.5rem 1.75rem',
-                textAlign: 'right',
-                minWidth: 180
-              }}>
-                <div style={{
-                  fontFamily: 'Syne, sans-serif',
-                  fontWeight: 800,
-                  fontSize: '2.2rem',
-                  color: '#6366f1',
-                  marginBottom: '0.25rem'
-                }}>
-                  10+
-                </div>
-                <div style={{
-                  fontFamily: 'DM Mono, monospace',
-                  fontSize: '0.75rem',
-                  color: '#888',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase'
-                }}>
-                  ML & Data Science<br />Projects
-                </div>
               </div>
             </div>
           </div>
