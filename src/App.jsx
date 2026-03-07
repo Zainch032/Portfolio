@@ -25,10 +25,10 @@ export default function Portfolio() {
   }, []);
 
   const skills = {
-    'Programming': ['Python (Expert)', 'JavaScript', 'SQL', 'MySQL'],
-    'ML & AI': ['Machine Learning', 'NLP', 'Neural Networks', 'Feature Engineering', 'Model Deployment'],
-    'Frameworks': ['LangChain', 'LangGraph', 'FastAPI', 'Streamlit', 'Flask', 'Express.js', 'Node.js'],
-    'Tools & Cloud': ['Git', 'GitHub', 'AWS', 'VS Code', 'Scikit-learn', 'NLTK', 'Pandas', 'NumPy']
+    'Programming': ['Python (Expert)', 'JavaScript', 'SQL', 'MySQL', 'C++', 'HTML/CSS'],
+    'ML & AI': ['Machine Learning', 'NLP', 'Neural Networks', 'Feature Engineering', 'Model Deployment', 'Deep Learning', 'Computer Vision'],
+    'Frameworks': ['LangChain', 'LangGraph', 'FastAPI', 'Streamlit', 'Flask', 'Express.js', 'Node.js', 'React.js', 'PyTorch'],
+    'Tools & Cloud': ['Git', 'GitHub', 'AWS', 'VS Code', 'Scikit-learn', 'NLTK', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn']
   };
 
   const projects = [
@@ -92,7 +92,8 @@ export default function Portfolio() {
     achievements: [
       'Built end-to-end sentiment analysis pipeline on real-world customer text data — achieving ~90% classification accuracy with a tuned ML model',
       'Applied full text preprocessing: tokenization, stopword removal, lemmatization, and TF-IDF feature extraction to transform raw noisy text into model-ready features',
-      'Benchmarked multiple classifiers, handled class imbalance in sentiment labels, and followed industry-standard ML workflows for model evaluation and optimization'
+      'Benchmarked multiple classifiers, handled class imbalance in sentiment labels, and followed industry-standard ML workflows for model evaluation and optimization',
+      'Collaborated on documentation of technical workflows and model performance metrics for stakeholder review'
     ]
   }];
 
@@ -100,7 +101,9 @@ export default function Portfolio() {
     'Google Data Analytics Professional Certificate (2024)',
     'Python Essentials for MLOps',
     'Introduction to Generative AI',
-    'Introduction to Neural Networks and PyTorch'
+    'Introduction to Neural Networks and PyTorch',
+    'Data Science Methodology - Coursera',
+    'Applied Machine Learning with Python'
   ];
 
   const navItems = ['About', 'Experience', 'Skills', 'Projects', 'Contact'];
@@ -110,11 +113,11 @@ export default function Portfolio() {
       minHeight: '100vh',
       background: '#050508',
       color: '#e8e6f0',
-      fontFamily: "system-ui, -apple-system, sans-serif",
+      fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
       overflowX: 'hidden'
     }}>
       <style>{`
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: #050508; }
         ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 2px; }
@@ -126,15 +129,24 @@ export default function Portfolio() {
           font-weight: 600;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          transition: color 0.2s;
+          transition: 0.2s;
           position: relative;
         }
         .nav-link:hover { color: #e8e6f0; }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: -4px; left: 0;
+          width: 0; height: 1px;
+          background: #6366f1;
+          transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
 
         .fade-up {
           opacity: 0;
-          transform: translateY(32px);
-          transition: opacity 0.7s ease, transform 0.7s ease;
+          transform: translateY(30px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
         }
         .fade-up.visible {
           opacity: 1;
@@ -146,27 +158,27 @@ export default function Portfolio() {
           border: 1px solid #1a1a2e;
           border-radius: 2px;
           padding: 2.5rem;
-          transition: border-color 0.3s, transform 0.3s;
+          transition: all 0.3s;
           position: relative;
           overflow: hidden;
         }
-        .project-card:hover { border-color: #2a2a4e; transform: translateY(-4px); }
+        .project-card:hover { border-color: #6366f1; transform: translateY(-5px); box-shadow: 0 10px 30px -15px rgba(99,102,241,0.2); }
 
         .skill-tag {
           display: inline-block;
-          padding: 0.35rem 0.85rem;
+          padding: 0.4rem 0.9rem;
           border: 1px solid #1a1a2e;
-          border-radius: 2px;
-          font-size: 0.72rem;
+          background: #050508;
+          font-size: 0.75rem;
           color: #888;
-          transition: all 0.2s;
+          transition: 0.2s;
         }
         .skill-tag:hover { border-color: #6366f1; color: #f0eeff; }
 
         .btn-primary {
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.6rem;
           padding: 0.9rem 2.2rem;
           background: #6366f1;
           color: white;
@@ -174,14 +186,14 @@ export default function Portfolio() {
           font-weight: 700;
           text-transform: uppercase;
           text-decoration: none;
-          border-radius: 2px;
           transition: 0.2s;
         }
+        .btn-primary:hover { background: #4f46e5; transform: translateY(-2px); }
 
         .btn-outline {
           display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.6rem;
           padding: 0.9rem 2.2rem;
           border: 1px solid #1a1a2e;
           color: #888;
@@ -189,75 +201,86 @@ export default function Portfolio() {
           font-weight: 700;
           text-transform: uppercase;
           text-decoration: none;
-          border-radius: 2px;
-          transition: all 0.2s;
+          transition: 0.2s;
         }
-        .btn-outline:hover { border-color: #6366f1; color: #f0eeff; }
+        .btn-outline:hover { border-color: #6366f1; color: #f0eeff; transform: translateY(-2px); }
 
         .section-label {
           font-size: 0.7rem;
           font-weight: 700;
-          letter-spacing: 0.25em;
+          letter-spacing: 0.3em;
           text-transform: uppercase;
           color: #6366f1;
           margin-bottom: 1.5rem;
+          display: block;
         }
 
         .cursor { animation: blink 1s step-end infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .grid-bg {
+        .grid-pattern {
           position: absolute;
           inset: 0;
           background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
-          background-size: 60px 60px;
+          background-size: 50px 50px;
           pointer-events: none;
+          z-index: 0;
+        }
+
+        .exp-dot {
+          width: 9px;
+          height: 9px;
+          background: #6366f1;
+          position: absolute;
+          left: -5px;
+          top: 0;
         }
       `}</style>
 
-      {/* Nav */}
+      {/* Navigation */}
       <nav style={{
         position: 'fixed', top: 0, width: '100%', zIndex: 100,
-        background: scrollY > 50 ? 'rgba(5,5,8,0.98)' : 'transparent',
+        background: scrollY > 50 ? 'rgba(5,5,8,0.95)' : 'transparent',
         borderBottom: scrollY > 50 ? '1px solid #1a1a2e' : '1px solid transparent',
-        transition: '0.3s'
+        transition: '0.3s',
+        backdropFilter: scrollY > 50 ? 'blur(10px)' : 'none'
       }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <div style={{ width: 32, height: 32, background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900 }}>Z</div>
-            <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>Muhammad Zain</span>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 80 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div style={{ width: 34, height: 34, background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: 'white' }}>Z</div>
+            <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>Muhammad Zain</span>
           </div>
           <div style={{ display: 'flex', gap: '3rem' }}>
             {navItems.map(item => (
               <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">{item}</a>
             ))}
           </div>
-          <a href="mailto:zc19398@gmail.com" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.75rem' }}>Hire Me</a>
+          <a href="mailto:zc19398@gmail.com" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.7rem' }}>Hire Me</a>
         </div>
       </nav>
 
       {/* Hero */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', padding: '0 2rem' }}>
-        <div className="grid-bg" />
-        <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', paddingTop: 80 }}>
-          <div className="section-label">Available for Roles 2026</div>
-          <h1 style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '2rem', letterSpacing: '-0.04em' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', padding: '0 2rem', overflow: 'hidden' }}>
+        <div className="grid-pattern" />
+        <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', paddingTop: 80, position: 'relative', zIndex: 1 }}>
+          <span className="section-label">AI Engineering & Data Science</span>
+          <h1 style={{ fontSize: 'clamp(3rem, 10vw, 6.5rem)', fontWeight: 900, lineHeight: 1.05, marginBottom: '2rem', letterSpacing: '-0.05em' }}>
             Data Scientist &<br />
             <span style={{ color: '#6366f1' }}>ML Engineer</span>
             <span className="cursor">_</span>
           </h1>
-          <p style={{ fontSize: '1.1rem', color: '#888', lineHeight: 1.8, maxWidth: 580, marginBottom: '3.5rem' }}>
-            I specialize in end-to-end ML pipelines, Agentic AI systems, and extracting insights from raw data. 7th Semester AI Student at COMSATS Lahore.
+          <p style={{ fontSize: '1.15rem', color: '#888', lineHeight: 1.8, maxWidth: 620, marginBottom: '3.5rem' }}>
+            last-semester AI student at COMSATS Lahore. Specializing in end-to-end ML pipelines, Agentic AI architectures, and turning raw data into actionable business intelligence.
           </p>
 
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="#projects" className="btn-primary">View Portfolio <ArrowUpRight size={16} /></a>
-            <a href="mailto:zc19398@gmail.com" className="btn-outline">Get in Touch</a>
+            <a href="#projects" className="btn-primary">View Portfolio <ArrowUpRight size={18} /></a>
+            <a href="mailto:zc19398@gmail.com" className="btn-outline">Contact Me</a>
             
-            <div style={{ background: '#0c0c14', border: '1px solid #1a1a2e', padding: '0.8rem 1.4rem', display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-              <span style={{ fontWeight: 900, fontSize: '1.8rem', color: '#6366f1' }}>10+</span>
-              <span style={{ fontSize: '0.65rem', color: '#555', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1.3 }}>
-                Projects<br />Completed
+            <div style={{ background: '#0c0c14', border: '1px solid #1a1a2e', padding: '0.8rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <span style={{ fontWeight: 900, fontSize: '2rem', color: '#6366f1' }}>10+</span>
+              <span style={{ fontSize: '0.7rem', color: '#555', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1.3 }}>
+                ML & DS Projects<br />Completed
               </span>
             </div>
           </div>
@@ -265,42 +288,44 @@ export default function Portfolio() {
       </section>
 
       {/* About */}
-      <section id="about" style={{ padding: '10rem 2rem' }}>
+      <section id="about" style={{ padding: '12rem 2rem' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '6rem' }}>
             <div id="about-l" data-animate className={`fade-up ${visible['about-l'] ? 'visible' : ''}`}>
-              <div className="section-label">Profile</div>
-              <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '2.5rem' }}>Engineering Intelligence</h2>
-              <p style={{ color: '#888', fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '1.5rem' }}>
-                Aspiring Data Scientist and ML Engineer pursuing BS in AI. I bridge the gap between raw data and actionable intelligence through robust, production-ready pipelines.
+              <span className="section-label">Profile</span>
+              <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '3rem', letterSpacing: '-0.03em' }}>Engineering Intelligence</h2>
+              <p style={{ color: '#888', fontSize: '1.15rem', lineHeight: 1.9, marginBottom: '1.5rem' }}>
+                I am a focused AI student specializing in the intersection of Data Science and Natural Language Processing. My approach is rooted in building systems that aren't just accurate, but production-ready and scalable.
               </p>
-              <p style={{ color: '#888', fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '2.5rem' }}>
-                My focus lies in NLP and Generative AI, specifically multi-agent orchestration via LangGraph. I believe in clean code and measurable model performance.
+              <p style={{ color: '#888', fontSize: '1.15rem', lineHeight: 1.9, marginBottom: '3rem' }}>
+                During my internship at Elevo Pathway, I shipped sentiment analysis pipelines using TF-IDF and tuned classifiers. Currently, I'm developing <strong>Diet Mind</strong>, an Agentic AI system that utilizes LangGraph for intelligent dietary orchestration.
               </p>
-              <div style={{ display: 'flex', gap: '3rem' }}>
+              <div style={{ display: 'flex', gap: '4rem' }}>
                 <div>
-                  <div style={{ fontSize: '1.8rem', fontWeight: 900 }}>3.35</div>
-                  <div style={{ fontSize: '0.7rem', color: '#555', textTransform: 'uppercase' }}>CGPA</div>
+                  <div style={{ fontSize: '2rem', fontWeight: 900, color: '#f0eeff' }}>3.35</div>
+                  <div style={{ fontSize: '0.75rem', color: '#555', textTransform: 'uppercase', fontWeight: 700, marginTop: '0.5rem' }}>Current CGPA</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.8rem', fontWeight: 900 }}>02 Mo</div>
-                  <div style={{ fontSize: '0.7rem', color: '#555', textTransform: 'uppercase' }}>Internship</div>
+                  <div style={{ fontSize: '2rem', fontWeight: 900, color: '#f0eeff' }}>02 Mo</div>
+                  <div style={{ fontSize: '0.75rem', color: '#555', textTransform: 'uppercase', fontWeight: 700, marginTop: '0.5rem' }}>Remote Internship</div>
                 </div>
               </div>
             </div>
+
             <div id="about-r" data-animate className={`fade-up ${visible['about-r'] ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
-              <div style={{ background: '#0c0c14', border: '1px solid #1a1a2e', padding: '2.5rem' }}>
-                <div style={{ color: '#6366f1', fontWeight: 700, fontSize: '0.8rem', marginBottom: '1.5rem' }}>QUICK SPECS</div>
+              <div style={{ background: '#0c0c14', border: '1px solid #1a1a2e', padding: '3rem' }}>
+                <div style={{ color: '#6366f1', fontWeight: 800, fontSize: '0.8rem', marginBottom: '2rem', letterSpacing: '0.1em' }}>BIO DATA</div>
                 {[
-                  { k: 'Education', v: 'BS Artificial Intelligence' },
-                  { k: 'Institution', v: 'COMSATS Lahore' },
-                  { k: 'Focus', v: 'NLP, ML, Agentic AI' },
+                  { k: 'Full Name', v: 'Muhammad Zain' },
                   { k: 'Location', v: 'Lahore, Pakistan' },
-                  { k: 'Contact', v: '+92 336 0453765' }
-                ].map((d, i) => (
-                  <div key={i} style={{ padding: '1rem 0', borderBottom: i < 4 ? '1px solid #1a1a2e' : 'none', display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ fontSize: '0.8rem', color: '#444', fontWeight: 600 }}>{d.k}</span>
-                    <span style={{ fontSize: '0.85rem', color: '#888' }}>{d.v}</span>
+                  { k: 'University', v: 'COMSATS Lahore' },
+                  { k: 'Specialization', v: 'DS, ML, Agentic AI' },
+                  { k: 'Contact No', v: '+92 336 0453765' },
+                  { k: 'Email', v: 'zc19398@gmail.com' }
+                ].map((item, i) => (
+                  <div key={i} style={{ padding: '1.2rem 0', borderBottom: i < 5 ? '1px solid #1a1a2e' : 'none', display: 'flex', justifyContent: 'space-between', gap: '1rem' }}>
+                    <span style={{ fontSize: '0.8rem', color: '#444', fontWeight: 700, textTransform: 'uppercase' }}>{item.k}</span>
+                    <span style={{ fontSize: '0.9rem', color: '#888', textAlign: 'right' }}>{item.v}</span>
                   </div>
                 ))}
               </div>
@@ -310,24 +335,24 @@ export default function Portfolio() {
       </section>
 
       {/* Experience */}
-      <section id="experience" style={{ padding: '10rem 2rem', background: '#080810' }}>
+      <section id="experience" style={{ padding: '12rem 2rem', background: '#080810' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div className="section-label">Trajectory</div>
-          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '5rem' }}>Experience</h2>
+          <span className="section-label">Trajectory</span>
+          <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '6rem', letterSpacing: '-0.03em' }}>Experience</h2>
           {experience.map((exp, i) => (
-            <div key={i} className="fade-up visible" style={{ borderLeft: '1px solid #6366f1', paddingLeft: '3rem', position: 'relative' }}>
-              <div style={{ width: 8, height: 8, background: '#6366f1', position: 'absolute', left: -4, top: 0 }} />
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
+            <div key={i} className="fade-up visible" style={{ borderLeft: '1px solid #1a1a2e', paddingLeft: '4rem', position: 'relative' }}>
+              <div className="exp-dot" />
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2.5rem', flexWrap: 'wrap', gap: '1rem' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.8rem', fontWeight: 800 }}>{exp.role}</h3>
-                  <div style={{ color: '#6366f1', fontWeight: 700, marginTop: '0.5rem' }}>{exp.company}</div>
+                  <h3 style={{ fontSize: '2rem', fontWeight: 900, color: '#f0eeff' }}>{exp.role}</h3>
+                  <div style={{ color: '#6366f1', fontWeight: 800, fontSize: '1.1rem', marginTop: '0.5rem' }}>{exp.company}</div>
                 </div>
-                <div style={{ fontSize: '0.85rem', color: '#444', fontWeight: 700 }}>{exp.period}</div>
+                <div style={{ fontSize: '0.9rem', color: '#444', fontWeight: 800, background: '#0c0c14', padding: '0.5rem 1rem', border: '1px solid #1a1a2e' }}>{exp.period}</div>
               </div>
               <ul style={{ listStyle: 'none' }}>
                 {exp.achievements.map((a, j) => (
-                  <li key={j} style={{ color: '#888', marginBottom: '1.2rem', lineHeight: 1.7, display: 'flex', gap: '1rem' }}>
-                    <span style={{ color: '#6366f1' }}>—</span> {a}
+                  <li key={j} style={{ color: '#888', marginBottom: '1.5rem', lineHeight: 1.8, fontSize: '1.05rem', display: 'flex', gap: '1.5rem' }}>
+                    <span style={{ color: '#6366f1', fontWeight: 900 }}>—</span> {a}
                   </li>
                 ))}
               </ul>
@@ -337,15 +362,15 @@ export default function Portfolio() {
       </section>
 
       {/* Skills */}
-      <section id="skills" style={{ padding: '10rem 2rem' }}>
+      <section id="skills" style={{ padding: '12rem 2rem' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div className="section-label">Toolkit</div>
-          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '5rem' }}>Competencies</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2.5rem' }}>
+          <span className="section-label">Toolkit</span>
+          <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '6rem', letterSpacing: '-0.03em' }}>Competencies</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
             {Object.entries(skills).map(([cat, list], i) => (
               <div key={i}>
-                <h3 style={{ fontSize: '0.9rem', fontWeight: 800, marginBottom: '1.5rem' }}>{cat}</h3>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: 900, marginBottom: '2rem', color: '#f0eeff', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{cat}</h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
                   {list.map(s => <span key={s} className="skill-tag">{s}</span>)}
                 </div>
               </div>
@@ -355,25 +380,34 @@ export default function Portfolio() {
       </section>
 
       {/* Projects */}
-      <section id="projects" style={{ padding: '10rem 2rem', background: '#080810' }}>
+      <section id="projects" style={{ padding: '12rem 2rem', background: '#080810' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div className="section-label">Works</div>
-          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '5rem' }}>Portfolio</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2rem' }}>
+          <span className="section-label">Works</span>
+          <h2 style={{ fontSize: '3.5rem', fontWeight: 800, marginBottom: '6rem', letterSpacing: '-0.03em' }}>Selected Portfolio</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2.5rem' }}>
             {projects.map((p, i) => (
               <div key={i} className="project-card">
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2.5rem' }}>
                   <span style={{ fontSize: '0.8rem', fontWeight: 900, color: p.color }}>{p.num}</span>
-                  <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a href={p.github} style={{ color: '#444' }}><Github size={18} /></a>
-                    {p.demo && <a href={p.demo} style={{ color: '#444' }}><ExternalLink size={18} /></a>}
+                  <div style={{ display: 'flex', gap: '1.25rem' }}>
+                    <a href={p.github} style={{ color: '#444', transition: '0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#6366f1'} onMouseOut={e => e.currentTarget.style.color = '#444'}><Github size={20} /></a>
+                    {p.demo && <a href={p.demo} style={{ color: '#444', transition: '0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#6366f1'} onMouseOut={e => e.currentTarget.style.color = '#444'}><ExternalLink size={20} /></a>}
                   </div>
                 </div>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>{p.title}</h3>
-                <div style={{ fontSize: '0.75rem', color: p.color, fontWeight: 700, marginBottom: '1.5rem', textTransform: 'uppercase' }}>{p.subtitle}</div>
-                <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2rem' }}>{p.description}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {p.tech.map(t => <span key={t} style={{ fontSize: '0.65rem', color: '#444', border: '1px solid #1a1a2e', padding: '0.3rem 0.6rem' }}>{t}</span>)}
+                <h3 style={{ fontSize: '1.7rem', fontWeight: 900, marginBottom: '0.6rem', color: '#f0eeff' }}>{p.title}</h3>
+                <div style={{ fontSize: '0.8rem', color: p.color, fontWeight: 800, marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{p.subtitle}</div>
+                <p style={{ color: '#666', fontSize: '1rem', lineHeight: 1.8, marginBottom: '2rem' }}>{p.description}</p>
+                
+                <div style={{ marginBottom: '2rem' }}>
+                  {p.highlights.map((h, idx) => (
+                    <div key={idx} style={{ fontSize: '0.85rem', color: '#444', marginBottom: '0.4rem', fontWeight: 600 }}>
+                      <span style={{ color: p.color, marginRight: '0.5rem' }}>▸</span> {h}
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+                  {p.tech.map(t => <span key={t} style={{ fontSize: '0.7rem', color: '#444', border: '1px solid #1a1a2e', padding: '0.3rem 0.7rem', fontWeight: 700 }}>{t}</span>)}
                 </div>
               </div>
             ))}
@@ -381,16 +415,16 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Certs */}
-      <section style={{ padding: '8rem 2rem' }}>
+      {/* Certifications */}
+      <section style={{ padding: '10rem 2rem' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div className="section-label">Validation</div>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '4rem' }}>Certifications</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+          <span className="section-label">Validation</span>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '5rem', letterSpacing: '-0.02em' }}>Professional Certifications</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
             {certifications.map((c, i) => (
-              <div key={i} style={{ padding: '1.5rem', border: '1px solid #1a1a2e', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <Award size={18} style={{ color: '#6366f1' }} />
-                <span style={{ fontSize: '0.9rem', color: '#888' }}>{c}</span>
+              <div key={i} style={{ padding: '2rem', border: '1px solid #1a1a2e', display: 'flex', gap: '1.5rem', alignItems: 'center', background: '#0c0c14' }}>
+                <Award size={22} style={{ color: '#6366f1', flexShrink: 0 }} />
+                <span style={{ fontSize: '0.95rem', color: '#888', fontWeight: 500, lineHeight: 1.4 }}>{c}</span>
               </div>
             ))}
           </div>
@@ -398,23 +432,27 @@ export default function Portfolio() {
       </section>
 
       {/* Contact */}
-      <section id="contact" style={{ padding: '10rem 2rem', textAlign: 'center' }}>
-        <div className="section-label">Connect</div>
-        <h2 style={{ fontSize: '4.5rem', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.04em' }}>Build with me.</h2>
-        <p style={{ color: '#666', fontSize: '1.2rem', marginBottom: '4rem', maxWidth: 500, margin: '0 auto 4rem' }}>
-          Open to Junior AI, Data Science, and ML Engineering roles.
+      <section id="contact" style={{ padding: '12rem 2rem', textAlign: 'center', position: 'relative' }}>
+        <span className="section-label">Get In Touch</span>
+        <h2 style={{ fontSize: 'clamp(3rem, 8vw, 5.5rem)', fontWeight: 900, marginBottom: '2.5rem', letterSpacing: '-0.05em', lineHeight: 1.1 }}>Let's build the<br /><span style={{ color: '#6366f1' }}>future of AI</span> together.</h2>
+        <p style={{ color: '#666', fontSize: '1.2rem', marginBottom: '4.5rem', maxWidth: 550, margin: '0 auto 4.5rem', lineHeight: 1.8 }}>
+          I am actively seeking Junior AI Engineering and Data Science opportunities where I can apply my skills in NLP and end-to-end ML pipelines.
         </p>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="mailto:zc19398@gmail.com" className="btn-primary"><Mail size={16} /> zc19398@gmail.com</a>
-          <a href="https://www.linkedin.com/in/muhammad-zain-9710692b4" className="btn-outline"><Linkedin size={16} /> LinkedIn</a>
-          <a href="https://github.com/Zainch032" className="btn-outline"><Github size={16} /> GitHub</a>
+          <a href="mailto:zc19398@gmail.com" className="btn-primary"><Mail size={18} /> zc19398@gmail.com</a>
+          <a href="tel:+923360453765" className="btn-outline"><Phone size={18} /> +923360453765</a>
+          <a href="https://www.linkedin.com/in/muhammad-zain-9710692b4" target="_blank" rel="noopener noreferrer" className="btn-outline"><Linkedin size={18} /> LinkedIn</a>
+          <a href="https://github.com/Zainch032" target="_blank" rel="noopener noreferrer" className="btn-outline"><Github size={18} /> GitHub</a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer style={{ padding: '5rem 2rem', borderTop: '1px solid #1a1a2e', textAlign: 'center' }}>
-        <p style={{ fontSize: '0.8rem', color: '#333', fontWeight: 700, letterSpacing: '0.2em' }}>
-          © 2026 MUHAMMAD ZAIN / DATA SCIENCE & ML
+      <footer style={{ padding: '6rem 2rem', borderTop: '1px solid #1a1a2e', textAlign: 'center', background: '#050508' }}>
+        <div style={{ marginBottom: '2rem', opacity: 0.5 }}>
+           <div style={{ fontWeight: 900, fontSize: '1.5rem', color: '#6366f1' }}>ZAIN.</div>
+        </div>
+        <p style={{ fontSize: '0.85rem', color: '#333', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase' }}>
+          © 2026 MUHAMMAD ZAIN / AI ENGINEER & DATA SCIENTIST
         </p>
       </footer>
     </div>
