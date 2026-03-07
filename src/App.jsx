@@ -49,7 +49,7 @@ export default function Portfolio() {
       tech: ['Python', 'XGBoost', 'FastAPI', 'Scikit-learn', 'Pandas'],
       github: 'https://github.com/Zainch032/SmartPricer',
       highlights: ['24 engineered features', 'R² = 0.903', 'End-to-end deployment'],
-      color: '#8b5cf6',
+      color: '#6f32ff',
       num: '02'
     },
     {
@@ -59,7 +59,7 @@ export default function Portfolio() {
       tech: ['Python', 'LangChain', 'Groq API', 'Flask', 'Aladhan API'],
       github: 'https://github.com/Zainch032/My-prayer-Bot',
       highlights: ['Eliminated hallucinations', 'Real-time tool calling', '3D UI design'],
-      color: '#a855f7',
+      color: '#b539fd',
       num: '03'
     },
     {
@@ -70,7 +70,7 @@ export default function Portfolio() {
       github: 'https://github.com/Zainch032/News-Classification-',
       demo: 'https://zainch12.pythonanywhere.com',
       highlights: ['90%+ accuracy', 'Custom NLP pipeline', 'Real-time predictions'],
-      color: '#c026d3',
+      color: '#8e18b5',
       num: '04'
     },
     {
@@ -80,7 +80,7 @@ export default function Portfolio() {
       tech: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Feature Engineering'],
       github: 'https://github.com/Zainch032/ML-Project',
       highlights: ['R² ≈ 0.91', 'Advanced preprocessing', 'High-cardinality handling'],
-      color: '#e11d48',
+      color: '#8b2bd0',
       num: '05'
     }
   ];
@@ -356,7 +356,7 @@ export default function Portfolio() {
 
             <div className="float" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', opacity: 0.9 }}>
               {[
-                { label: 'Projects', value: '4+' },
+                { label: 'Projects', value: '10+' },
                 { label: 'ML Models', value: '10+' },
                 { label: 'F1 Gain', value: '+24%' },
                 { label: 'R² Score', value: '0.91' },
@@ -410,7 +410,7 @@ export default function Portfolio() {
                   { label: 'University', value: 'COMSATS Lahore' },
                   { label: 'Degree', value: 'BS Artificial Intelligence' },
                   { label: 'CGPA', value: '3.35 / 4.0' },
-                  { label: 'Specialization', value: 'NLP, MLOps & GenAI' },
+                  { label: 'Specialization', value: 'NLP, Data Science & GenAI' },
                   { label: 'Exploring', value: 'LangGraph · Agentic AI · RAG' },
                   { label: 'Experience', value: 'NLP Intern @ Elevo Pathway' },
                   { label: 'Location', value: 'Lahore, Pakistan' },
