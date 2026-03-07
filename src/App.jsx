@@ -49,7 +49,7 @@ export default function Portfolio() {
       tech: ['Python', 'XGBoost', 'FastAPI', 'Scikit-learn', 'Pandas'],
       github: 'https://github.com/Zainch032/SmartPricer',
       highlights: ['24 engineered features', 'R² = 0.903', 'End-to-end deployment'],
-      color: '#6f32ff',
+      color: '#6366f1',
       num: '02'
     },
     {
@@ -59,7 +59,7 @@ export default function Portfolio() {
       tech: ['Python', 'LangChain', 'Groq API', 'Flask', 'Aladhan API'],
       github: 'https://github.com/Zainch032/My-prayer-Bot',
       highlights: ['Eliminated hallucinations', 'Real-time tool calling', '3D UI design'],
-      color: '#b539fd',
+      color: '#6366f1',
       num: '03'
     },
     {
@@ -70,7 +70,7 @@ export default function Portfolio() {
       github: 'https://github.com/Zainch032/News-Classification-',
       demo: 'https://zainch12.pythonanywhere.com',
       highlights: ['90%+ accuracy', 'Custom NLP pipeline', 'Real-time predictions'],
-      color: '#8e18b5',
+      color: '#6366f1',
       num: '04'
     },
     {
@@ -80,7 +80,7 @@ export default function Portfolio() {
       tech: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Feature Engineering'],
       github: 'https://github.com/Zainch032/ML-Project',
       highlights: ['R² ≈ 0.91', 'Advanced preprocessing', 'High-cardinality handling'],
-      color: '#8b2bd0',
+      color: '#6366f1',
       num: '05'
     }
   ];
@@ -311,15 +311,11 @@ export default function Portfolio() {
 
       {/* Hero */}
       <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '0 2rem' }}>
-        <div className="grid-bg" />
-        <div className="glow" style={{ width: 500, height: 500, background: 'rgba(99,102,241,0.08)', top: -100, right: -100 }} />
-        <div className="glow" style={{ width: 300, height: 300, background: 'rgba(168,85,247,0.06)', bottom: 100, left: -50 }} />
-
         <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: 80 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '4rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }}>
             <div>
               <div className="section-label" style={{ marginBottom: '1.5rem' }}>
-                Available for opportunities
+                Open to roles in Data Science, ML & Agentic AI
                 <span style={{ display: 'inline-block', width: 6, height: 6, background: '#22c55e', borderRadius: '50%', marginLeft: 8, verticalAlign: 'middle' }} />
               </div>
               
@@ -352,27 +348,6 @@ export default function Portfolio() {
                 <span>🎓 3.35 CGPA</span>
                 <span>💼 NLP Intern</span>
               </div>
-            </div>
-
-            <div className="float" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', opacity: 0.9 }}>
-              {[
-                { label: 'Projects', value: '10+' },
-                { label: 'ML Models', value: '10+' },
-                { label: 'F1 Gain', value: '+24%' },
-                { label: 'R² Score', value: '0.91' },
-              ].map((stat, i) => (
-                <div key={i} style={{
-                  background: '#0c0c14',
-                  border: '1px solid #1a1a2e',
-                  borderRadius: 2,
-                  padding: '1.25rem 1.75rem',
-                  textAlign: 'center',
-                  minWidth: 120
-                }}>
-                  <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: '1.8rem', color: '#6366f1' }}>{stat.value}</div>
-                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: '#555', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 4 }}>{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -410,7 +385,7 @@ export default function Portfolio() {
                   { label: 'University', value: 'COMSATS Lahore' },
                   { label: 'Degree', value: 'BS Artificial Intelligence' },
                   { label: 'CGPA', value: '3.35 / 4.0' },
-                  { label: 'Specialization', value: 'NLP, Data Science & GenAI' },
+                  { label: 'Specialization', value: 'NLP, Data Science, GenAI & Agentic AI' },
                   { label: 'Exploring', value: 'LangGraph · Agentic AI · RAG' },
                   { label: 'Experience', value: 'NLP Intern @ Elevo Pathway' },
                   { label: 'Location', value: 'Lahore, Pakistan' },
@@ -440,7 +415,6 @@ export default function Portfolio() {
 
       {/* Experience */}
       <section id="experience" style={{ padding: '8rem 2rem', background: '#080810', position: 'relative' }}>
-        <div className="grid-bg" />
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div className="section-label">Career</div>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '4rem', color: '#f0eeff' }}>Experience</h2>
@@ -493,7 +467,6 @@ export default function Portfolio() {
 
       {/* Projects */}
       <section id="projects" style={{ padding: '8rem 2rem', background: '#080810', position: 'relative' }}>
-        <div className="grid-bg" />
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div className="section-label">Work</div>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '4rem', color: '#f0eeff' }}>Featured Projects</h2>
@@ -565,18 +538,17 @@ export default function Portfolio() {
 
       {/* Contact */}
       <section id="contact" style={{ padding: '8rem 2rem', background: '#080810', position: 'relative', overflow: 'hidden' }}>
-        <div className="grid-bg" />
-        <div className="glow" style={{ width: 400, height: 400, background: 'rgba(99,102,241,0.06)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }} />
         <div style={{ maxWidth: 700, margin: '0 auto', textAlign: 'center', position: 'relative' }}>
           <div className="section-label" style={{ textAlign: 'center' }}>Contact</div>
           <h2 style={{ fontFamily: 'Syne, sans-serif', fontWeight: 800, fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: 1, marginBottom: '1.5rem', color: '#f0eeff' }}>
             Let's build<br /><span style={{ color: '#6366f1' }}>something</span><br />together.
           </h2>
           <p style={{ color: '#555', fontSize: '1rem', lineHeight: 1.8, marginBottom: '3rem', maxWidth: 450, margin: '0 auto 3rem' }}>
-            I'm actively seeking opportunities in Data Science and ML Engineering. Open to internships, full-time roles, and collaborations.
+            I'm actively seeking opportunities in Data Science, ML Engineering, and Agentic AI. Open to internships, full-time roles, and collaborations.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="mailto:zc19398@gmail.com" className="btn-primary"><Mail size={14} /> zc19398@gmail.com</a>
+            <a href="tel:+923360453765" className="btn-outline"><Phone size={14} /> +923360453765</a>
             <a href="https://www.linkedin.com/in/muhammad-zain-9710692b4" target="_blank" rel="noopener noreferrer" className="btn-outline"><Linkedin size={14} /> LinkedIn</a>
             <a href="https://github.com/Zainch032" target="_blank" rel="noopener noreferrer" className="btn-outline"><Github size={14} /> GitHub</a>
           </div>
