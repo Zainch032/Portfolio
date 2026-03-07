@@ -115,7 +115,6 @@ export default function Portfolio() {
     }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: #050508; }
         ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 2px; }
@@ -123,9 +122,9 @@ export default function Portfolio() {
         .nav-link {
           color: #888;
           text-decoration: none;
-          font-size: 0.85rem;
-          font-weight: 500;
-          letter-spacing: 0.05em;
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
           transition: color 0.2s;
           position: relative;
@@ -134,8 +133,8 @@ export default function Portfolio() {
 
         .fade-up {
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.6s ease, transform 0.6s ease;
+          transform: translateY(32px);
+          transition: opacity 0.7s ease, transform 0.7s ease;
         }
         .fade-up.visible {
           opacity: 1;
@@ -145,8 +144,8 @@ export default function Portfolio() {
         .project-card {
           background: #0c0c14;
           border: 1px solid #1a1a2e;
-          border-radius: 4px;
-          padding: 2rem;
+          border-radius: 2px;
+          padding: 2.5rem;
           transition: border-color 0.3s, transform 0.3s;
           position: relative;
           overflow: hidden;
@@ -155,74 +154,64 @@ export default function Portfolio() {
 
         .skill-tag {
           display: inline-block;
-          padding: 0.3rem 0.8rem;
-          border: 1px solid #2a2a4e;
-          border-radius: 4px;
-          font-size: 0.75rem;
+          padding: 0.35rem 0.85rem;
+          border: 1px solid #1a1a2e;
+          border-radius: 2px;
+          font-size: 0.72rem;
           color: #888;
           transition: all 0.2s;
         }
-        .skill-tag:hover { border-color: #6366f1; color: #a5b4fc; }
+        .skill-tag:hover { border-color: #6366f1; color: #f0eeff; }
 
         .btn-primary {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
-          padding: 0.875rem 2rem;
+          padding: 0.9rem 2.2rem;
           background: #6366f1;
           color: white;
-          font-size: 0.85rem;
-          font-weight: 600;
+          font-size: 0.8rem;
+          font-weight: 700;
           text-transform: uppercase;
           text-decoration: none;
-          border-radius: 4px;
-          transition: background 0.2s;
+          border-radius: 2px;
+          transition: 0.2s;
         }
 
         .btn-outline {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
-          padding: 0.875rem 2rem;
-          border: 1px solid #2a2a4e;
+          padding: 0.9rem 2.2rem;
+          border: 1px solid #1a1a2e;
           color: #888;
-          font-size: 0.85rem;
-          font-weight: 600;
+          font-size: 0.8rem;
+          font-weight: 700;
           text-transform: uppercase;
           text-decoration: none;
-          border-radius: 4px;
+          border-radius: 2px;
           transition: all 0.2s;
         }
-        .btn-outline:hover { border-color: #6366f1; color: #a5b4fc; }
+        .btn-outline:hover { border-color: #6366f1; color: #f0eeff; }
 
         .section-label {
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 0.25em;
           text-transform: uppercase;
           color: #6366f1;
-          margin-bottom: 1rem;
+          margin-bottom: 1.5rem;
         }
 
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
         .cursor { animation: blink 1s step-end infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        .cert-item {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          padding: 1rem;
-          border: 1px solid #1a1a2e;
-          border-radius: 4px;
-        }
-
-        .exp-card {
-          border-left: 2px solid #6366f1;
-          padding-left: 2rem;
-          position: relative;
+        .grid-bg {
+          position: absolute;
+          inset: 0;
+          background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+          background-size: 60px 60px;
+          pointer-events: none;
         }
       `}</style>
 
@@ -233,69 +222,131 @@ export default function Portfolio() {
         borderBottom: scrollY > 50 ? '1px solid #1a1a2e' : '1px solid transparent',
         transition: '0.3s'
       }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 70 }}>
-          <div style={{ fontWeight: 800, fontSize: '1.2rem', color: '#6366f1' }}>ZAIN.</div>
-          <div style={{ display: 'flex', gap: '2.5rem' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <div style={{ width: 32, height: 32, background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900 }}>Z</div>
+            <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>Muhammad Zain</span>
+          </div>
+          <div style={{ display: 'flex', gap: '3rem' }}>
             {navItems.map(item => (
               <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">{item}</a>
             ))}
           </div>
-          <a href="mailto:zc19398@gmail.com" className="btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.8rem' }}>Hire Me</a>
+          <a href="mailto:zc19398@gmail.com" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.75rem' }}>Hire Me</a>
         </div>
       </nav>
 
       {/* Hero */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', padding: '0 2rem' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: 80 }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', padding: '0 2rem' }}>
+        <div className="grid-bg" />
+        <div style={{ maxWidth: 1200, margin: '0 auto', width: '100%', paddingTop: 80 }}>
           <div className="section-label">Available for Roles 2026</div>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', fontWeight: 800, lineHeight: 1.1, marginBottom: '1.5rem', color: '#f0eeff' }}>
+          <h1 style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '2rem', letterSpacing: '-0.04em' }}>
             Data Scientist &<br />
-            <span style={{ color: '#6366f1' }}>Machine Learning</span> Engineer
-            <span className="cursor">|</span>
+            <span style={{ color: '#6366f1' }}>ML Engineer</span>
+            <span className="cursor">_</span>
           </h1>
-
-          <p style={{ fontSize: '1.1rem', color: '#888', lineHeight: 1.6, maxWidth: 550, marginBottom: '2.5rem' }}>
-            AI student at COMSATS Lahore specializing in end-to-end ML pipelines, Agentic AI systems, and extracting insights from raw data.
+          <p style={{ fontSize: '1.1rem', color: '#888', lineHeight: 1.8, maxWidth: 580, marginBottom: '3.5rem' }}>
+            I specialize in end-to-end ML pipelines, Agentic AI systems, and extracting insights from raw data. 7th Semester AI Student at COMSATS Lahore.
           </p>
 
-          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
-            <a href="#projects" className="btn-primary">Explore Work <ArrowUpRight size={16} /></a>
-            <a href="mailto:zc19398@gmail.com" className="btn-outline">Contact</a>
-
-            {/* 10+ Projects Badge integrated here */}
-            <div style={{
-              background: 'rgba(99,102,241,0.1)',
-              border: '1px solid rgba(99,102,241,0.2)',
-              borderRadius: 4,
-              padding: '0.6rem 1.2rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '1rem'
-            }}>
-              <span style={{ fontWeight: 800, fontSize: '1.5rem', color: '#6366f1' }}>10+</span>
-              <span style={{ fontSize: '0.7rem', color: '#aaa', fontWeight: 600, textTransform: 'uppercase' }}>ML & DS Projects</span>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="#projects" className="btn-primary">View Portfolio <ArrowUpRight size={16} /></a>
+            <a href="mailto:zc19398@gmail.com" className="btn-outline">Get in Touch</a>
+            
+            <div style={{ background: '#0c0c14', border: '1px solid #1a1a2e', padding: '0.8rem 1.4rem', display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
+              <span style={{ fontWeight: 900, fontSize: '1.8rem', color: '#6366f1' }}>10+</span>
+              <span style={{ fontSize: '0.65rem', color: '#555', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1.3 }}>
+                Projects<br />Completed
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section id="projects" style={{ padding: '8rem 2rem', background: '#080810' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div className="section-label">Portfolio</div>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 800, marginBottom: '4rem' }}>Featured Projects</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-            {projects.map((p, i) => (
-              <div key={i} className="project-card" data-animate id={`proj-${i}`}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-                  <span style={{ color: '#6366f1', fontWeight: 700, fontSize: '0.8rem' }}>{p.num}</span>
-                  <a href={p.github} style={{ color: '#555' }}><Github size={18} /></a>
+      {/* About */}
+      <section id="about" style={{ padding: '10rem 2rem' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '6rem' }}>
+            <div id="about-l" data-animate className={`fade-up ${visible['about-l'] ? 'visible' : ''}`}>
+              <div className="section-label">Profile</div>
+              <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '2.5rem' }}>Engineering Intelligence</h2>
+              <p style={{ color: '#888', fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '1.5rem' }}>
+                Aspiring Data Scientist and ML Engineer pursuing BS in AI. I bridge the gap between raw data and actionable intelligence through robust, production-ready pipelines.
+              </p>
+              <p style={{ color: '#888', fontSize: '1.1rem', lineHeight: 1.9, marginBottom: '2.5rem' }}>
+                My focus lies in NLP and Generative AI, specifically multi-agent orchestration via LangGraph. I believe in clean code and measurable model performance.
+              </p>
+              <div style={{ display: 'flex', gap: '3rem' }}>
+                <div>
+                  <div style={{ fontSize: '1.8rem', fontWeight: 900 }}>3.35</div>
+                  <div style={{ fontSize: '0.7rem', color: '#555', textTransform: 'uppercase' }}>CGPA</div>
                 </div>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.5rem' }}>{p.title}</h3>
-                <p style={{ color: '#6366f1', fontSize: '0.8rem', fontWeight: 600, marginBottom: '1rem' }}>{p.subtitle}</p>
-                <p style={{ color: '#888', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>{p.description}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {p.tech.map(t => <span key={t} className="skill-tag">{t}</span>)}
+                <div>
+                  <div style={{ fontSize: '1.8rem', fontWeight: 900 }}>02 Mo</div>
+                  <div style={{ fontSize: '0.7rem', color: '#555', textTransform: 'uppercase' }}>Internship</div>
+                </div>
+              </div>
+            </div>
+            <div id="about-r" data-animate className={`fade-up ${visible['about-r'] ? 'visible' : ''}`} style={{ transitionDelay: '0.2s' }}>
+              <div style={{ background: '#0c0c14', border: '1px solid #1a1a2e', padding: '2.5rem' }}>
+                <div style={{ color: '#6366f1', fontWeight: 700, fontSize: '0.8rem', marginBottom: '1.5rem' }}>QUICK SPECS</div>
+                {[
+                  { k: 'Education', v: 'BS Artificial Intelligence' },
+                  { k: 'Institution', v: 'COMSATS Lahore' },
+                  { k: 'Focus', v: 'NLP, ML, Agentic AI' },
+                  { k: 'Location', v: 'Lahore, Pakistan' },
+                  { k: 'Contact', v: '+92 336 0453765' }
+                ].map((d, i) => (
+                  <div key={i} style={{ padding: '1rem 0', borderBottom: i < 4 ? '1px solid #1a1a2e' : 'none', display: 'flex', justifyContent: 'space-between' }}>
+                    <span style={{ fontSize: '0.8rem', color: '#444', fontWeight: 600 }}>{d.k}</span>
+                    <span style={{ fontSize: '0.85rem', color: '#888' }}>{d.v}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience */}
+      <section id="experience" style={{ padding: '10rem 2rem', background: '#080810' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="section-label">Trajectory</div>
+          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '5rem' }}>Experience</h2>
+          {experience.map((exp, i) => (
+            <div key={i} className="fade-up visible" style={{ borderLeft: '1px solid #6366f1', paddingLeft: '3rem', position: 'relative' }}>
+              <div style={{ width: 8, height: 8, background: '#6366f1', position: 'absolute', left: -4, top: 0 }} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.8rem', fontWeight: 800 }}>{exp.role}</h3>
+                  <div style={{ color: '#6366f1', fontWeight: 700, marginTop: '0.5rem' }}>{exp.company}</div>
+                </div>
+                <div style={{ fontSize: '0.85rem', color: '#444', fontWeight: 700 }}>{exp.period}</div>
+              </div>
+              <ul style={{ listStyle: 'none' }}>
+                {exp.achievements.map((a, j) => (
+                  <li key={j} style={{ color: '#888', marginBottom: '1.2rem', lineHeight: 1.7, display: 'flex', gap: '1rem' }}>
+                    <span style={{ color: '#6366f1' }}>—</span> {a}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" style={{ padding: '10rem 2rem' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="section-label">Toolkit</div>
+          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '5rem' }}>Competencies</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2.5rem' }}>
+            {Object.entries(skills).map(([cat, list], i) => (
+              <div key={i}>
+                <h3 style={{ fontSize: '0.9rem', fontWeight: 800, marginBottom: '1.5rem' }}>{cat}</h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+                  {list.map(s => <span key={s} className="skill-tag">{s}</span>)}
                 </div>
               </div>
             ))}
@@ -303,9 +354,68 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience & Footer simplified similarly... */}
-      <footer style={{ padding: '4rem 2rem', textAlign: 'center', borderTop: '1px solid #1a1a2e' }}>
-        <p style={{ fontSize: '0.85rem', color: '#444' }}>© 2026 MUHAMMAD ZAIN • DATA SCIENTIST</p>
+      {/* Projects */}
+      <section id="projects" style={{ padding: '10rem 2rem', background: '#080810' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="section-label">Works</div>
+          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '5rem' }}>Portfolio</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '2rem' }}>
+            {projects.map((p, i) => (
+              <div key={i} className="project-card">
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 900, color: p.color }}>{p.num}</span>
+                  <div style={{ display: 'flex', gap: '1rem' }}>
+                    <a href={p.github} style={{ color: '#444' }}><Github size={18} /></a>
+                    {p.demo && <a href={p.demo} style={{ color: '#444' }}><ExternalLink size={18} /></a>}
+                  </div>
+                </div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>{p.title}</h3>
+                <div style={{ fontSize: '0.75rem', color: p.color, fontWeight: 700, marginBottom: '1.5rem', textTransform: 'uppercase' }}>{p.subtitle}</div>
+                <p style={{ color: '#666', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2rem' }}>{p.description}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {p.tech.map(t => <span key={t} style={{ fontSize: '0.65rem', color: '#444', border: '1px solid #1a1a2e', padding: '0.3rem 0.6rem' }}>{t}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certs */}
+      <section style={{ padding: '8rem 2rem' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="section-label">Validation</div>
+          <h2 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '4rem' }}>Certifications</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+            {certifications.map((c, i) => (
+              <div key={i} style={{ padding: '1.5rem', border: '1px solid #1a1a2e', display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <Award size={18} style={{ color: '#6366f1' }} />
+                <span style={{ fontSize: '0.9rem', color: '#888' }}>{c}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" style={{ padding: '10rem 2rem', textAlign: 'center' }}>
+        <div className="section-label">Connect</div>
+        <h2 style={{ fontSize: '4.5rem', fontWeight: 900, marginBottom: '2rem', letterSpacing: '-0.04em' }}>Build with me.</h2>
+        <p style={{ color: '#666', fontSize: '1.2rem', marginBottom: '4rem', maxWidth: 500, margin: '0 auto 4rem' }}>
+          Open to Junior AI, Data Science, and ML Engineering roles.
+        </p>
+        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a href="mailto:zc19398@gmail.com" className="btn-primary"><Mail size={16} /> zc19398@gmail.com</a>
+          <a href="https://www.linkedin.com/in/muhammad-zain-9710692b4" className="btn-outline"><Linkedin size={16} /> LinkedIn</a>
+          <a href="https://github.com/Zainch032" className="btn-outline"><Github size={16} /> GitHub</a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ padding: '5rem 2rem', borderTop: '1px solid #1a1a2e', textAlign: 'center' }}>
+        <p style={{ fontSize: '0.8rem', color: '#333', fontWeight: 700, letterSpacing: '0.2em' }}>
+          © 2026 MUHAMMAD ZAIN / DATA SCIENCE & ML
+        </p>
       </footer>
     </div>
   );
