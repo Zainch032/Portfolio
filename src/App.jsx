@@ -72,6 +72,16 @@ export default function Portfolio() {
       highlights: ['90%+ accuracy', 'Custom NLP pipeline', 'Real-time predictions'],
       color: '#c026d3',
       num: '04'
+    },
+    {
+      title: 'CarPredict',
+      subtitle: 'Car Price Prediction ML',
+      description: 'Feature engineering-heavy ML project — addressed missing values, consolidated high-cardinality categories, and extracted simplified representations from complex fields to build a clean, optimized feature set.',
+      tech: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib', 'Feature Engineering'],
+      github: 'https://github.com/Zainch032/ML-Project',
+      highlights: ['R² ≈ 0.91', 'Advanced preprocessing', 'High-cardinality handling'],
+      color: '#e11d48',
+      num: '05'
     }
   ];
 
