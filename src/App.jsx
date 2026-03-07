@@ -33,14 +33,24 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: 'ChurnPredict',
+      subtitle: 'Bank Customer Churn Predictor',
+      description: 'End-to-end ML project — deep EDA with crosstabs, boxenplots & pivot tables, SMOTE to fix class imbalance, 5-model benchmark. Improved F1-score from 0.50 → 0.62 (+24%). Deployed via FastAPI with an EDA insights dashboard.',
+      tech: ['Python', 'scikit-learn', 'SMOTE', 'FastAPI', 'Pandas', 'HTML/CSS/JS'],
+      github: 'https://github.com/Zainch032/bank-churn-predictor',
+      highlights: ['F1: 0.50 → 0.62 (+24%)', 'SMOTE + Gradient Boosting', 'Live prediction API'],
+      color: '#6366f1',
+      num: '01'
+    },
+    {
       title: 'SmartPricer',
       subtitle: 'Phone Price Predictor',
       description: 'End-to-end ML project with extensive EDA, feature engineering from raw specs, XGBoost model deployed via FastAPI with custom frontend.',
       tech: ['Python', 'XGBoost', 'FastAPI', 'Scikit-learn', 'Pandas'],
       github: 'https://github.com/Zainch032/SmartPricer',
-      highlights: ['24 engineered features', 'End-to-end deployment', 'PKR price prediction'],
-      color: '#6366f1',
-      num: '01'
+      highlights: ['24 engineered features', 'R² = 0.903', 'End-to-end deployment'],
+      color: '#8b5cf6',
+      num: '02'
     },
     {
       title: 'Prayer Assistant',
@@ -49,8 +59,8 @@ export default function Portfolio() {
       tech: ['Python', 'LangChain', 'Groq API', 'Flask', 'Aladhan API'],
       github: 'https://github.com/Zainch032/My-prayer-Bot',
       highlights: ['Eliminated hallucinations', 'Real-time tool calling', '3D UI design'],
-      color: '#8b5cf6',
-      num: '02'
+      color: '#a855f7',
+      num: '03'
     },
     {
       title: 'NewsClassify',
@@ -60,16 +70,6 @@ export default function Portfolio() {
       github: 'https://github.com/Zainch032/News-Classification-',
       demo: 'https://zainch12.pythonanywhere.com',
       highlights: ['90%+ accuracy', 'Custom NLP pipeline', 'Real-time predictions'],
-      color: '#a855f7',
-      num: '03'
-    },
-    {
-      title: 'CarPredict',
-      subtitle: 'Price Prediction ML',
-      description: 'Feature preprocessing workflow with advanced engineering techniques and noise reduction achieving high prediction accuracy.',
-      tech: ['Python', 'Pandas', 'Scikit-learn', 'Feature Engineering'],
-      github: 'https://github.com/Zainch032/ML-Project',
-      highlights: ['R² ≈ 0.91', 'Advanced preprocessing', 'Noise reduction'],
       color: '#c026d3',
       num: '04'
     }
@@ -80,9 +80,9 @@ export default function Portfolio() {
     company: 'Elevo Pathway',
     period: 'Oct 2025 – Nov 2025',
     achievements: [
-      'Built end-to-end NLP models achieving ~90% accuracy on real-world datasets',
-      'Applied advanced preprocessing: tokenization, stopword removal, lemmatization, TF-IDF',
-      'Gained industry-standard ML workflow experience handling noisy text data'
+      'Built end-to-end sentiment analysis pipeline on real-world customer text data — achieving ~90% classification accuracy with a tuned ML model',
+      'Applied full text preprocessing: tokenization, stopword removal, lemmatization, and TF-IDF feature extraction to transform raw noisy text into model-ready features',
+      'Benchmarked multiple classifiers, handled class imbalance in sentiment labels, and followed industry-standard ML workflows for model evaluation and optimization'
     ]
   }];
 
@@ -152,15 +152,7 @@ export default function Portfolio() {
           position: relative;
           overflow: hidden;
         }
-        .project-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 3px; height: 0;
-          transition: height 0.4s ease;
-        }
         .project-card:hover { border-color: #2a2a4e; transform: translateY(-4px); }
-        .project-card:hover::before { height: 100%; }
 
         .skill-tag {
           display: inline-block;
@@ -337,8 +329,7 @@ export default function Portfolio() {
               </h1>
 
               <p style={{ fontSize: '1.05rem', color: '#666', lineHeight: 1.7, maxWidth: 480, marginBottom: '2.5rem' }}>
-                Building intelligent systems from raw data to production deployment. 
-                Specializing in NLP, MLOps, and actively exploring GenAI — LangGraph & Agentic AI systems at COMSATS University Lahore.
+                AI student with hands-on experience building end-to-end ML pipelines — from deep EDA, feature engineering, and class imbalance handling to model selection and deployment via FastAPI. Skilled in extracting actionable insights from data, benchmarking multiple models, and shipping production-ready REST APIs. Currently exploring LangGraph and Agentic AI at COMSATS University Lahore.
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
@@ -357,7 +348,7 @@ export default function Portfolio() {
               {[
                 { label: 'Projects', value: '4+' },
                 { label: 'ML Models', value: '10+' },
-                { label: 'Accuracy', value: '90%+' },
+                { label: 'F1 Gain', value: '+24%' },
                 { label: 'R² Score', value: '0.91' },
               ].map((stat, i) => (
                 <div key={i} style={{
@@ -414,7 +405,7 @@ export default function Portfolio() {
                   { label: 'Experience', value: 'NLP Intern @ Elevo Pathway' },
                   { label: 'Location', value: 'Lahore, Pakistan' },
                 ].map((item, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.875rem 0', borderBottom: i < 5 ? '1px solid #1a1a2e' : 'none' }}>
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.875rem 0', borderBottom: i < 6 ? '1px solid #1a1a2e' : 'none' }}>
                     <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: '#555', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{item.label}</span>
                     <span style={{ fontSize: '0.88rem', color: '#aaa', textAlign: 'right', maxWidth: '55%' }}>{item.value}</span>
                   </div>
