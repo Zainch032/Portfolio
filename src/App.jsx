@@ -281,6 +281,27 @@ export default function Portfolio() {
           background: #6366f1;
           border-radius: 50%;
         }
+
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1.6fr 1fr;
+          gap: 4rem;
+          align-items: center;
+        }
+
+        .hero-metric {
+          justify-self: flex-end;
+        }
+
+        @media (max-width: 768px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+          }
+          .hero-metric {
+            justify-self: flex-start;
+            margin-top: 1.5rem;
+          }
+        }
       `}</style>
 
       {/* Nav */}
@@ -312,7 +333,7 @@ export default function Portfolio() {
       {/* Hero */}
       <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '0 2rem' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', width: '100%', paddingTop: 80 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }}>
+          <div className="hero-grid">
             <div>
               <div className="section-label" style={{ marginBottom: '1.5rem' }}>
                 Open to roles in Data Science, ML & Agentic AI
@@ -347,6 +368,36 @@ export default function Portfolio() {
                 <span>📍 Lahore, PK</span>
                 <span>🎓 3.35 CGPA</span>
                 <span>💼 NLP Intern</span>
+              </div>
+            </div>
+
+            <div className="hero-metric">
+              <div style={{
+                background: '#0c0c14',
+                border: '1px solid #1a1a2e',
+                borderRadius: 2,
+                padding: '1.5rem 1.75rem',
+                textAlign: 'right',
+                minWidth: 180
+              }}>
+                <div style={{
+                  fontFamily: 'Syne, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '2.2rem',
+                  color: '#6366f1',
+                  marginBottom: '0.25rem'
+                }}>
+                  10+
+                </div>
+                <div style={{
+                  fontFamily: 'DM Mono, monospace',
+                  fontSize: '0.75rem',
+                  color: '#888',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase'
+                }}>
+                  ML & Data Science<br />Projects
+                </div>
               </div>
             </div>
           </div>
@@ -386,6 +437,7 @@ export default function Portfolio() {
                   { label: 'Degree', value: 'BS Artificial Intelligence' },
                   { label: 'CGPA', value: '3.35 / 4.0' },
                   { label: 'Specialization', value: 'NLP, Data Science, GenAI & Agentic AI' },
+                  { label: 'Projects', value: '10+ ML & Data Science projects' },
                   { label: 'Exploring', value: 'LangGraph · Agentic AI · RAG' },
                   { label: 'Experience', value: 'NLP Intern @ Elevo Pathway' },
                   { label: 'Location', value: 'Lahore, Pakistan' },
