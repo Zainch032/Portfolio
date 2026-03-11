@@ -879,9 +879,9 @@ export default function Portfolio() {
                     >
                       <Github size={20} />
                     </a>
-                    {p.demo && (
+                    {(p.demo || p.live) && (
                       <a
-                        href={p.demo}
+                        href={p.demo || p.live}
                         style={{ color: "#444", transition: "0.2s" }}
                         onMouseOver={(e) =>
                           (e.currentTarget.style.color = "#6366f1")
