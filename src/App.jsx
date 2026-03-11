@@ -150,7 +150,7 @@ export default function Portfolio() {
         "End-to-end NLP pipeline with EDA dashboard, 10 ML classifiers, Flask deployment for real-time news category prediction.",
       tech: ["Python", "Scikit-learn", "NLTK", "TF-IDF", "Flask"],
       github: "https://github.com/Zainch032/News-Classification-",
-      demo: "https://zainch12.pythonanywhere.com",
+     
       highlights: [
         "90%+ accuracy",
         "Custom NLP pipeline",
