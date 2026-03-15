@@ -20,6 +20,7 @@ I'm Muhammad Zain, a Data Scientist and ML Engineer passionate about building en
 End-to-end ML project with extensive EDA, feature engineering from raw specs, XGBoost model, and deployed via FastAPI with a custom HTML/CSS/JS frontend. Predicts smartphone prices in PKR.
 - **Tech:** Python, XGBoost, FastAPI, Scikit-learn, Pandas, HTML/CSS/JS
 - **GitHub:** [SmartPricer](https://github.com/Zainch032/SmartPricer)
+- **Live Demo:** [Smart Pricer on Hugging Face](https://huggingface.co/spaces/Zainch032/Smart_Pricer)
 
 ### 🤖 Pakistan Prayer Assistant (Agentic AI)
 Agentic AI using the ReAct pattern with real-time API tool-calling for 100+ Pakistani cities — eliminates LLM hallucinations on prayer times.

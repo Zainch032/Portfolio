@@ -120,6 +120,7 @@ export default function Portfolio() {
         "End-to-end ML project with extensive EDA, feature engineering from raw specs, XGBoost model deployed via FastAPI with custom frontend.",
       tech: ["Python", "XGBoost", "FastAPI", "Scikit-learn", "Pandas"],
       github: "https://github.com/Zainch032/SmartPricer",
+      live: "https://huggingface.co/spaces/Zainch032/Smart_Pricer",
       highlights: [
         "24 engineered features",
         "R² = 0.903",
@@ -135,6 +136,7 @@ export default function Portfolio() {
         "Agentic AI using ReAct pattern to overcome LLM knowledge cutoffs with real-time API tool-calling for 100+ Pakistani cities.",
       tech: ["Python", "LangChain", "Groq API", "Flask", "Aladhan API"],
       github: "https://github.com/Zainch032/My-prayer-Bot",
+      live: "https://huggingface.co/spaces/Zainch032/My-prayer-Bot",
       highlights: [
         "Eliminated hallucinations",
         "Real-time tool calling",
@@ -260,7 +262,7 @@ export default function Portfolio() {
           background: #0c0c14;
           border: 1px solid #1a1a2e;
           border-radius: 2px;
-          padding: 2.5rem;
+          padding: 2rem;
           transition: all 0.3s;
           position: relative;
           overflow: hidden;
@@ -920,15 +922,15 @@ export default function Portfolio() {
                 <p
                   style={{
                     color: "#666",
-                    fontSize: "1rem",
-                    lineHeight: 1.8,
-                    marginBottom: "2rem",
+                    fontSize: "0.95rem",
+                    lineHeight: 1.7,
+                    marginBottom: "1.5rem",
                   }}
                 >
                   {p.description}
                 </p>
 
-                <div style={{ marginBottom: "2rem" }}>
+                <div style={{ marginBottom: "1.5rem" }}>
                   {p.highlights.map((h, idx) => (
                     <div
                       key={idx}
