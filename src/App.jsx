@@ -151,7 +151,8 @@ export default function Portfolio() {
       description:
         "End-to-end NLP pipeline with EDA dashboard, 10 ML classifiers, Flask deployment for real-time news category prediction.",
       tech: ["Python", "Scikit-learn", "NLTK", "TF-IDF", "Flask"],
-      github: "https://github.com/Zainch032/News-Classification-",
+      github: "https://github.com/Zainch032/News-Classification",
+      live: "https://huggingface.co/spaces/Zainch032/News-Classification",
      
       highlights: [
         "90%+ accuracy",
@@ -435,7 +436,7 @@ export default function Portfolio() {
             zIndex: 1,
           }}
         >
-          <span className="section-label">AI Engineering & Data Science</span>
+          <span className="section-label">Data Science & AI Engineering</span>
           <h1
             style={{
               fontSize: "clamp(3rem, 10vw, 6.5rem)",
@@ -458,7 +459,7 @@ export default function Portfolio() {
               marginBottom: "3.5rem",
             }}
           >
-            last-semester AI student at COMSATS Lahore. Specializing in
+            Last-semester AI student at COMSATS Lahore. Specializing in
             end-to-end ML pipelines, Agentic AI architectures, and turning raw
             data into actionable business intelligence.
           </p>
@@ -642,7 +643,7 @@ export default function Portfolio() {
                   { k: "Full Name", v: "Muhammad Zain" },
                   { k: "Location", v: "Lahore, Pakistan" },
                   { k: "University", v: "COMSATS Lahore" },
-                  { k: "Specialization", v: "DS, ML, Agentic AI" },
+                  { k: "Specialization", v: "Data Science, ML, Agentic AI" },
                   { k: "Contact No", v: "+92 336 0453765" },
                   { k: "Email", v: "zc19398@gmail.com" },
                 ].map((item, i) => (
@@ -884,6 +885,8 @@ export default function Portfolio() {
                     {(p.demo || p.live) && (
                       <a
                         href={p.demo || p.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         style={{ color: "#444", transition: "0.2s" }}
                         onMouseOver={(e) =>
                           (e.currentTarget.style.color = "#6366f1")
@@ -1056,7 +1059,7 @@ export default function Portfolio() {
             lineHeight: 1.8,
           }}
         >
-          I am actively seeking Junior AI Engineering and Data Science
+          I am actively seeking Junior Data Science and AI Engineering 
           opportunities where I can apply my skills in NLP and end-to-end ML
           pipelines.
         </p>
