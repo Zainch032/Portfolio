@@ -120,7 +120,7 @@ export default function Portfolio() {
         "End-to-end ML project with extensive EDA, feature engineering from raw specs, XGBoost model deployed via FastAPI with custom frontend.",
       tech: ["Python", "XGBoost", "FastAPI", "Scikit-learn", "Pandas"],
       github: "https://github.com/Zainch032/SmartPricer",
-      live: "https://huggingface.co/spaces/Zainch032/Smart_Pricer",
+      live: "https://huggingface.co/spaces/Zainch032/SmartPricer",
       highlights: [
         "24 engineered features",
         "R² = 0.903",
