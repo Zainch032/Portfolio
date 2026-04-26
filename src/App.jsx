@@ -104,7 +104,7 @@ export default function Portfolio() {
         "HTML/CSS/JS",
       ],
       github: "https://github.com/Zainch032/bank-churn-predictor",
-      live: "https://independent-comfort-production-279e.up.railway.app",
+      live: "https://huggingface.co/spaces/Zainch032/Bank_Churn",
       highlights: [
         "F1: 0.50 → 0.62 (+24%)",
         "SMOTE + Gradient Boosting",
