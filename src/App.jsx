@@ -106,7 +106,7 @@ export default function Portfolio() {
       num: "01",
     },
     {
-      title: "Skill Recommender",
+      title: "Ai Skill Recommender",
       subtitle: "AI Jobs & Market Analysis",
       description:
         "End-to-end project on 1,500+ AI job postings, from raw CSV to a Streamlit app. Pipe-separated skills become 93 binary features, then a cosine-similarity recommender shows the skills, salary, posting count, and similar roles for any AI title.",
