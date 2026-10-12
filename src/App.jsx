@@ -91,6 +91,37 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "Diet Mind",
+      subtitle: "AI Nutrition Coach — FYP",
+      description:
+        "Final-year nutrition coach for Pakistani and Indian food. A health profile sets a daily calorie and macro budget, meals are logged by photo or name, and each meal is scored against the remaining budget and health conditions. A chat assistant answers questions about desi food from a local knowledge base and the user's own logs.",
+      tech: ["Expo", "React Native", "FastAPI", "PostgreSQL", "YOLO", "Groq"],
+      github: "https://github.com/Zainch032/Diet-Mind-FYP",
+      highlights: [
+        "YOLO meal scan",
+        "ACCEPT / WARNING / NOT_RECOMMENDED",
+        "Agent + RAG chat",
+      ],
+      color: "#6366f1",
+      num: "01",
+    },
+    {
+      title: "Skill Recommender",
+      subtitle: "AI Jobs & Market Analysis",
+      description:
+        "End-to-end project on 1,500+ AI job postings, from raw CSV to a Streamlit app. Pipe-separated skills become 93 binary features, then a cosine-similarity recommender shows the skills, salary, posting count, and similar roles for any AI title.",
+      tech: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Seaborn"],
+      github: "https://github.com/Zainch032/Job-skill-recommender",
+      live: "https://job-skill-recommender-032.streamlit.app/",
+      highlights: [
+        "1,500+ AI job postings",
+        "93 skills + cosine similarity",
+        "Senior title drives salary most",
+      ],
+      color: "#6366f1",
+      num: "02",
+    },
+    {
       title: "ChurnPredict",
       subtitle: "Bank Customer Churn Predictor",
       description:
@@ -111,7 +142,7 @@ export default function Portfolio() {
         "Live prediction API",
       ],
       color: "#6366f1",
-      num: "01",
+      num: "03",
     },
     {
       title: "SmartPricer",
@@ -127,7 +158,7 @@ export default function Portfolio() {
         "End-to-end deployment",
       ],
       color: "#6366f1",
-      num: "02",
+      num: "04",
     },
     {
       title: "Prayer Assistant",
@@ -143,7 +174,7 @@ export default function Portfolio() {
         "3D UI design",
       ],
       color: "#6366f1",
-      num: "03",
+      num: "05",
     },
     {
       title: "NewsClassify",
@@ -160,7 +191,7 @@ export default function Portfolio() {
         "Real-time predictions",
       ],
       color: "#6366f1",
-      num: "04",
+      num: "06",
     },
     {
       title: "CarPredict",
@@ -182,7 +213,23 @@ export default function Portfolio() {
         "High-cardinality handling",
       ],
       color: "#6366f1",
-      num: "05",
+      num: "07",
+    },
+    {
+      title: "EduRoute",
+      subtitle: "n8n German Admission Advisor",
+      description:
+        "AI admission advisor for Pakistani students applying to Germany. A NestJS API sends questions to an n8n agent (Gemini plus university, scholarship, visa, and cost tools) and can email a shortlist through Resend. Swagger docs and Sentry run on the live Render deployment.",
+      tech: ["NestJS", "n8n", "Gemini", "Resend", "Sentry"],
+      github: "https://github.com/Zainch032/german-advisor-nestjs",
+      live: "https://german-advisor.onrender.com/api-docs#/",
+      highlights: [
+        "n8n agent with 8 tools",
+        "HEC, APS, and blocked-account rules",
+        "Swagger docs on Render",
+      ],
+      color: "#6366f1",
+      num: "08",
     },
   ];
 
@@ -874,6 +921,9 @@ export default function Portfolio() {
                   <div style={{ display: "flex", gap: "1.25rem" }}>
                     <a
                       href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${p.title} code on GitHub`}
                       style={{ color: "#444", transition: "0.2s" }}
                       onMouseOver={(e) =>
                         (e.currentTarget.style.color = "#6366f1")
