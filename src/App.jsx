@@ -13,7 +13,7 @@ import {
   Download,
 } from "lucide-react";
 
-const PHOTO = "/zain.jpeg"; // save your photo as public/zain.jpg
+const PHOTO = "/zain.jpg"; // save your photo as public/zain.jpg
 
 const featured = [
   {
@@ -215,9 +215,7 @@ export default function Portfolio() {
         }),
       { threshold: 0.08 },
     );
-    document
-      .querySelectorAll("[data-animate]")
-      .forEach((el) => observer.observe(el));
+    document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -232,6 +230,8 @@ export default function Portfolio() {
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0}
         html{scroll-behavior:smooth}
+        html,body,#root{margin:0;padding:0;width:100%;max-width:none;min-height:100%;background:#07070c;text-align:left}
+        body{display:block;overflow-x:hidden}
         :root{
           --bg:#07070c; --bg2:#0b0b14; --card:#0e0e18; --line:#1c1c2e;
           --text:#ecebf5; --muted:#9a9ab0; --dim:#6b6b82; --accent:#6366f1; --accent2:#818cf8;
@@ -394,10 +394,7 @@ export default function Portfolio() {
               </a>
             ))}
           </div>
-          <a
-            href="mailto:zc19398@gmail.com"
-            className="btn btn-p btn-sm btn-hire"
-          >
+          <a href="mailto:zc19398@gmail.com" className="btn btn-p btn-sm btn-hire">
             Hire Me
           </a>
           <button
@@ -420,11 +417,7 @@ export default function Portfolio() {
                 {n}
               </a>
             ))}
-            <a
-              href="mailto:zc19398@gmail.com"
-              className="btn btn-p btn-sm"
-              style={{ alignSelf: "flex-start" }}
-            >
+            <a href="mailto:zc19398@gmail.com" className="btn btn-p btn-sm" style={{ alignSelf: "flex-start" }}>
               Hire Me
             </a>
           </div>
@@ -438,8 +431,7 @@ export default function Portfolio() {
         <div className="wrap hero-grid">
           <div>
             <div className="status">
-              <span className="dot" /> Open to AI/ML Engineer and Data Scientist
-              roles
+              <span className="dot" /> Open to AI/ML Engineer and Data Scientist roles
             </div>
             <h1 className="name">
               Machine Learning Engineer
@@ -502,9 +494,9 @@ export default function Portfolio() {
             <p>
               I work across the full machine learning lifecycle: rigorous{" "}
               <b>exploratory analysis and feature engineering</b>, model
-              benchmarking and evaluation, and{" "}
-              <b>deployment as production APIs</b>. A model is only as strong as
-              the insight behind its features.
+              benchmarking and evaluation, and <b>deployment as production
+              APIs</b>. A model is only as strong as the insight behind its
+              features.
             </p>
             <p>
               My current focus is <b>LLM and agentic systems</b>, using
@@ -520,10 +512,7 @@ export default function Portfolio() {
                 ["Name", "Muhammad Zain"],
                 ["Location", "Lahore, Pakistan"],
                 ["Focus", "Machine Learning, NLP, Generative AI"],
-                [
-                  "Education",
-                  "BS Artificial Intelligence, COMSATS Lahore (2027)",
-                ],
+                ["Education", "BS Artificial Intelligence, COMSATS Lahore (2027)"],
                 ["Email", "zc19398@gmail.com"],
                 ["Phone", "+92 336 0453765"],
               ].map(([k, v]) => (
@@ -549,20 +538,10 @@ export default function Portfolio() {
                 <div className="card-top">
                   <span className="num">{p.num}</span>
                   <div className="icons">
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${p.title} source code`}
-                    >
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} source code`}>
                       <Github size={20} />
                     </a>
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${p.title} live demo`}
-                    >
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} live demo`}>
                       <ExternalLink size={20} />
                     </a>
                   </div>
@@ -583,20 +562,10 @@ export default function Portfolio() {
                   ))}
                 </div>
                 <div className="card-cta">
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-p btn-sm"
-                  >
+                  <a href={p.live} target="_blank" rel="noopener noreferrer" className="btn btn-p btn-sm">
                     Live Demo <ArrowUpRight size={14} />
                   </a>
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-o btn-sm"
-                  >
+                  <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn-o btn-sm">
                     <Github size={14} /> Code
                   </a>
                 </div>
@@ -611,21 +580,11 @@ export default function Portfolio() {
                 <div className="card-top">
                   <span className="num">{p.live ? "Live" : "Code"}</span>
                   <div className="icons">
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${p.title} source code`}
-                    >
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} source code`}>
                       <Github size={20} />
                     </a>
                     {p.live && (
-                      <a
-                        href={p.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${p.title} live demo`}
-                      >
+                      <a href={p.live} target="_blank" rel="noopener noreferrer" aria-label={`${p.title} live demo`}>
                         <ExternalLink size={20} />
                       </a>
                     )}
@@ -731,20 +690,10 @@ export default function Portfolio() {
             <a href="tel:+923360453765" className="btn btn-o">
               <Phone size={16} /> +92 336 0453765
             </a>
-            <a
-              href="https://www.linkedin.com/in/muhammad-zain-9710692b4"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-o"
-            >
+            <a href="https://www.linkedin.com/in/muhammad-zain-9710692b4" target="_blank" rel="noopener noreferrer" className="btn btn-o">
               <Linkedin size={16} /> LinkedIn
             </a>
-            <a
-              href="https://github.com/Zainch032"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-o"
-            >
+            <a href="https://github.com/Zainch032" target="_blank" rel="noopener noreferrer" className="btn btn-o">
               <Github size={16} /> GitHub
             </a>
           </div>
