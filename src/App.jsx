@@ -4,31 +4,206 @@ import {
   Linkedin,
   Mail,
   ExternalLink,
-  Code,
-  Database,
-  Brain,
-  Sparkles,
   Menu,
   X,
   MapPin,
   Phone,
   Award,
-  Briefcase,
-  GraduationCap,
-  ChevronDown,
   ArrowUpRight,
+  Download,
 } from "lucide-react";
 
+const PHOTO = "/zain.jpeg"; // save your photo as public/zain.jpg
+
+const featured = [
+  {
+    num: "01",
+    title: "Bank Customer Churn Predictor",
+    subtitle: "Classification | FastAPI",
+    description:
+      "End-to-end ML project: hypothesis-driven EDA, SMOTE to correct class imbalance, a leak-proof Scikit-learn pipeline, and a 9-model benchmark. Gradient Boosting was selected and served through a FastAPI prediction API with an EDA insights dashboard.",
+    highlights: [
+      "F1-score improved from 0.50 to 0.70, ROC-AUC 0.87",
+      "Churn cliff found at 3+ products (7.6% to 82.7%)",
+      "Live real-time prediction API",
+    ],
+    tech: ["Python", "Scikit-learn", "SMOTE", "FastAPI", "Pandas"],
+    github: "https://github.com/Zainch032/bank-churn-predictor",
+    live: "https://huggingface.co/spaces/Zainch032/Bank_Churn",
+  },
+  {
+    num: "02",
+    title: "AI Jobs Skill Recommender",
+    subtitle: "Market Analysis | Recommender System",
+    description:
+      "Analysis of 1,500+ AI job postings, from raw CSV to a deployed Streamlit app. Pipe-separated skills were converted into 93 binary features, and a cosine-similarity recommender returns required skills, average salary, posting count, and similar roles for any AI job title.",
+    highlights: [
+      "1,500+ job postings analysed",
+      "93 engineered skill features",
+      "Seniority level is the strongest salary signal",
+    ],
+    tech: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Seaborn"],
+    github: "https://github.com/Zainch032/Job-skill-recommender",
+    live: "https://job-skill-recommender-032.streamlit.app/",
+  },
+  {
+    num: "03",
+    title: "Pakistan Prayer Assistant",
+    subtitle: "Agentic AI | LLM Tool Calling",
+    description:
+      "Agentic chatbot built with LangChain and Groq (LLaMA-3.3-70B) using the ReAct pattern. It decides when to call a live API instead of answering from model memory, solving the knowledge-cutoff problem for city-specific prayer times across 100+ Pakistani cities.",
+    highlights: [
+      "Real-time tool calling with the Aladhan API",
+      "English and Urdu queries",
+      "Dockerized and deployed on Hugging Face Spaces",
+    ],
+    tech: ["Python", "LangChain", "Groq", "Flask", "Docker"],
+    github: "https://github.com/Zainch032/My-prayer-Bot",
+    live: "https://huggingface.co/spaces/Zainch032/My-prayer-Bot",
+  },
+];
+
+const moreProjects = [
+  {
+    title: "Diet Mind",
+    subtitle: "AI Nutrition Coach (Final Year Project)",
+    description:
+      "Nutrition coach for Pakistani and Indian food. A health profile sets a daily calorie and macro budget, meals are logged by photo or name, and each meal is scored against the remaining budget and health conditions. A chat assistant answers questions from a local food knowledge base and the user's own logs.",
+    tech: ["React Native", "FastAPI", "PostgreSQL", "YOLO", "Groq"],
+    github: "https://github.com/Zainch032/Diet-Mind-FYP",
+  },
+  {
+    title: "SmartPricer",
+    subtitle: "Phone Price Predictor",
+    description:
+      "XGBoost regression model built on 24 features engineered from raw phone specifications (R² = 0.903), deployed with FastAPI and a custom frontend.",
+    tech: ["Python", "XGBoost", "FastAPI", "Pandas"],
+    github: "https://github.com/Zainch032/SmartPricer",
+    live: "https://huggingface.co/spaces/Zainch032/SmartPricer",
+  },
+  {
+    title: "NewsClassify",
+    subtitle: "Multi-class News Classification",
+    description:
+      "NLP pipeline with an EDA dashboard, TF-IDF features, and 10 benchmarked classifiers, served through Flask for real-time news category prediction (90%+ accuracy).",
+    tech: ["Python", "NLTK", "TF-IDF", "Scikit-learn", "Flask"],
+    github: "https://github.com/Zainch032/News-Classification",
+    live: "https://huggingface.co/spaces/Zainch032/News-Classification",
+  },
+  {
+    title: "EduRoute",
+    subtitle: "German University Admission Advisor",
+    description:
+      "A NestJS API sends questions to an n8n agent (Gemini plus university, scholarship, visa, and cost tools) and can email a shortlist through Resend. Swagger docs and Sentry run on the live Render deployment.",
+    tech: ["NestJS", "n8n", "Gemini", "Resend", "Sentry"],
+    github: "https://github.com/Zainch032/german-advisor-nestjs",
+    live: "https://german-advisor.onrender.com/api-docs#/",
+  },
+  {
+    title: "CarPredict",
+    subtitle: "Car Price Prediction",
+    description:
+      "Feature-engineering-heavy regression project: missing-value handling, consolidation of high-cardinality categories, and simplified features extracted from complex fields (R² of about 0.91).",
+    tech: ["Python", "Pandas", "NumPy", "Scikit-learn"],
+    github: "https://github.com/Zainch032/ML-Project",
+  },
+];
+
+const experience = [
+  {
+    role: "AI Automation Intern",
+    company: "DaFi Labs (EmpRadar.ai)",
+    period: "Jul 2026 - Aug 2026",
+    points: [
+      "Built and deployed n8n workflows integrating AI agents, LLMs, webhooks, and REST APIs to automate multi-step business processes, with conversation memory for stateful interactions.",
+      "Developed a Next.js interface on Vercel connecting Gmail and Google Sheets automation pipelines.",
+    ],
+  },
+  {
+    role: "Data Science Intern",
+    company: "Zee Outsourcing Solutions",
+    period: "Jun 2026 - Aug 2026",
+    points: [
+      "Worked on exploratory data analysis and supervised ML modeling with feature engineering and cross-validation.",
+      "Used SQL (CTEs, window functions) for data extraction and worked on ETL pipelines in KNIME.",
+    ],
+  },
+  {
+    role: "NLP Intern",
+    company: "Elevo Pathway",
+    period: "Oct 2025 - Nov 2025",
+    points: [
+      "Built a sentiment analysis pipeline on real customer text data, reaching about 90% classification accuracy with a tuned ML model.",
+      "Applied tokenization, stopword removal, lemmatization, and TF-IDF feature extraction; benchmarked classifiers and handled class imbalance.",
+    ],
+  },
+];
+
+const skills = {
+  "Machine Learning": [
+    "Supervised Learning",
+    "Unsupervised Learning",
+    "Feature Engineering",
+    "Model Evaluation",
+    "Hyperparameter Tuning",
+    "SMOTE",
+    "XGBoost",
+    "NLP",
+  ],
+  "Deep Learning & GenAI": [
+    "PyTorch",
+    "TensorFlow",
+    "Neural Networks",
+    "LangChain",
+    "LangGraph",
+    "Prompt Engineering",
+    "LLM APIs",
+    "Computer Vision",
+  ],
+  "Data & Languages": [
+    "Python",
+    "SQL",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Seaborn",
+    "JavaScript",
+    "C++",
+  ],
+  "Deployment & Tools": [
+    "FastAPI",
+    "Flask",
+    "REST APIs",
+    "Docker",
+    "Git / GitHub",
+    "Streamlit",
+    "Hugging Face Spaces",
+    "n8n",
+    "AWS",
+  ],
+};
+
+const certifications = [
+  "Google Data Analytics Professional Certificate (2024)",
+  "Python Essentials for MLOps",
+  "Introduction to Generative AI",
+  "Introduction to Neural Networks and PyTorch",
+  "Data Science Methodology (Coursera)",
+  "Applied Machine Learning with Python",
+];
+
+const navItems = ["About", "Projects", "Experience", "Skills", "Contact"];
+
 export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState("about");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [photoOk, setPhotoOk] = useState(true);
   const [visible, setVisible] = useState({});
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -38,7 +213,7 @@ export default function Portfolio() {
           if (e.isIntersecting)
             setVisible((v) => ({ ...v, [e.target.id]: true }));
         }),
-      { threshold: 0.1 },
+      { threshold: 0.08 },
     );
     document
       .querySelectorAll("[data-animate]")
@@ -46,826 +221,470 @@ export default function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
-  const skills = {
-    Programming: [
-      "Python (Expert)",
-      "JavaScript",
-      "SQL",
-      "MySQL",
-      "C++",
-      "HTML/CSS",
-    ],
-    "ML & AI": [
-      "Machine Learning",
-      "NLP",
-      "Neural Networks",
-      "Feature Engineering",
-      "Model Deployment",
-      "Deep Learning",
-      "Computer Vision",
-    ],
-    Frameworks: [
-      "LangChain",
-      "LangGraph",
-      "FastAPI",
-      "Streamlit",
-      "Flask",
-      "Express.js",
-      "Node.js",
-      "React.js",
-      "PyTorch",
-    ],
-    "Tools & Cloud": [
-      "Git",
-      "GitHub",
-      "AWS",
-      "VS Code",
-      "Scikit-learn",
-      "NLTK",
-      "Pandas",
-      "NumPy",
-      "Matplotlib",
-      "Seaborn",
-    ],
-  };
-
-  const projects = [
-    {
-      title: "Diet Mind",
-      subtitle: "AI Nutrition Coach — FYP",
-      description:
-        "Final-year nutrition coach for Pakistani and Indian food. A health profile sets a daily calorie and macro budget, meals are logged by photo or name, and each meal is scored against the remaining budget and health conditions. A chat assistant answers questions about desi food from a local knowledge base and the user's own logs.",
-      tech: ["Expo", "React Native", "FastAPI", "PostgreSQL", "YOLO", "Groq"],
-      github: "https://github.com/Zainch032/Diet-Mind-FYP",
-      highlights: [
-        "YOLO meal scan",
-        "ACCEPT / WARNING / NOT_RECOMMENDED",
-        "Agent + RAG chat",
-      ],
-      color: "#6366f1",
-      num: "01",
-    },
-    {
-      title: "Ai Skill Recommender",
-      subtitle: "AI Jobs & Market Analysis",
-      description:
-        "End-to-end project on 1,500+ AI job postings, from raw CSV to a Streamlit app. Pipe-separated skills become 93 binary features, then a cosine-similarity recommender shows the skills, salary, posting count, and similar roles for any AI title.",
-      tech: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Seaborn"],
-      github: "https://github.com/Zainch032/Job-skill-recommender",
-      live: "https://job-skill-recommender-032.streamlit.app/",
-      highlights: [
-        "1,500+ AI job postings",
-        "93 skills + cosine similarity",
-        "Senior title drives salary most",
-      ],
-      color: "#6366f1",
-      num: "02",
-    },
-    {
-      title: "ChurnPredict",
-      subtitle: "Bank Customer Churn Predictor",
-      description:
-        "End-to-end ML project — deep EDA with crosstabs, boxenplots & pivot tables, SMOTE to fix class imbalance, 5-model benchmark. Improved F1-score from 0.50 → 0.62 (+24%). Deployed via FastAPI with an EDA insights dashboard.",
-      tech: [
-        "Python",
-        "scikit-learn",
-        "SMOTE",
-        "FastAPI",
-        "Pandas",
-        "HTML/CSS/JS",
-      ],
-      github: "https://github.com/Zainch032/bank-churn-predictor",
-      live: "https://huggingface.co/spaces/Zainch032/Bank_Churn",
-      highlights: [
-        "F1: 0.50 → 0.62 (+24%)",
-        "SMOTE + Gradient Boosting",
-        "Live prediction API",
-      ],
-      color: "#6366f1",
-      num: "03",
-    },
-    {
-      title: "SmartPricer",
-      subtitle: "Phone Price Predictor",
-      description:
-        "End-to-end ML project with extensive EDA, feature engineering from raw specs, XGBoost model deployed via FastAPI with custom frontend.",
-      tech: ["Python", "XGBoost", "FastAPI", "Scikit-learn", "Pandas"],
-      github: "https://github.com/Zainch032/SmartPricer",
-      live: "https://huggingface.co/spaces/Zainch032/SmartPricer",
-      highlights: [
-        "24 engineered features",
-        "R² = 0.903",
-        "End-to-end deployment",
-      ],
-      color: "#6366f1",
-      num: "04",
-    },
-    {
-      title: "Prayer Assistant",
-      subtitle: "Pakistan Agentic AI",
-      description:
-        "Agentic AI using ReAct pattern to overcome LLM knowledge cutoffs with real-time API tool-calling for 100+ Pakistani cities.",
-      tech: ["Python", "LangChain", "Groq API", "Flask", "Aladhan API"],
-      github: "https://github.com/Zainch032/My-prayer-Bot",
-      live: "https://huggingface.co/spaces/Zainch032/My-prayer-Bot",
-      highlights: [
-        "Eliminated hallucinations",
-        "Real-time tool calling",
-        "3D UI design",
-      ],
-      color: "#6366f1",
-      num: "05",
-    },
-    {
-      title: "NewsClassify",
-      subtitle: "Multi-Classification System",
-      description:
-        "End-to-end NLP pipeline with EDA dashboard, 10 ML classifiers, Flask deployment for real-time news category prediction.",
-      tech: ["Python", "Scikit-learn", "NLTK", "TF-IDF", "Flask"],
-      github: "https://github.com/Zainch032/News-Classification",
-      live: "https://huggingface.co/spaces/Zainch032/News-Classification",
-     
-      highlights: [
-        "90%+ accuracy",
-        "Custom NLP pipeline",
-        "Real-time predictions",
-      ],
-      color: "#6366f1",
-      num: "06",
-    },
-    {
-      title: "CarPredict",
-      subtitle: "Car Price Prediction ML",
-      description:
-        "Feature engineering-heavy ML project — addressed missing values, consolidated high-cardinality categories, and extracted simplified representations from complex fields to build a clean, optimized feature set.",
-      tech: [
-        "Python",
-        "Pandas",
-        "NumPy",
-        "Scikit-learn",
-        "Matplotlib",
-        "Feature Engineering",
-      ],
-      github: "https://github.com/Zainch032/ML-Project",
-      highlights: [
-        "R² ≈ 0.91",
-        "Advanced preprocessing",
-        "High-cardinality handling",
-      ],
-      color: "#6366f1",
-      num: "07",
-    },
-    {
-      title: "EduRoute",
-      subtitle: "n8n German Admission Advisor",
-      description:
-        "AI admission advisor for Pakistani students applying to Germany. A NestJS API sends questions to an n8n agent (Gemini plus university, scholarship, visa, and cost tools) and can email a shortlist through Resend. Swagger docs and Sentry run on the live Render deployment.",
-      tech: ["NestJS", "n8n", "Gemini", "Resend", "Sentry"],
-      github: "https://github.com/Zainch032/german-advisor-nestjs",
-      live: "https://german-advisor.onrender.com/api-docs#/",
-      highlights: [
-        "n8n agent with 8 tools",
-        "HEC, APS, and blocked-account rules",
-        "Swagger docs on Render",
-      ],
-      color: "#6366f1",
-      num: "08",
-    },
-  ];
-
-  const experience = [
-    {
-      role: "NLP Intern",
-      company: "Elevo Pathway",
-      period: "Oct 2025 – Nov 2025",
-      achievements: [
-        "Built end-to-end sentiment analysis pipeline on real-world customer text data — achieving ~90% classification accuracy with a tuned ML model",
-        "Applied full text preprocessing: tokenization, stopword removal, lemmatization, and TF-IDF feature extraction to transform raw noisy text into model-ready features",
-        "Benchmarked multiple classifiers, handled class imbalance in sentiment labels, and followed industry-standard ML workflows for model evaluation and optimization",
-        "Collaborated on documentation of technical workflows and model performance metrics for stakeholder review",
-      ],
-    },
-  ];
-
-  const certifications = [
-    "Google Data Analytics Professional Certificate (2024)",
-    "Python Essentials for MLOps",
-    "Introduction to Generative AI",
-    "Introduction to Neural Networks and PyTorch",
-    "Data Science Methodology - Coursera",
-    "Applied Machine Learning with Python",
-  ];
-
-  const navItems = ["About", "Experience", "Skills", "Projects", "Contact"];
+  const fade = (id) => ({
+    id,
+    "data-animate": true,
+    className: `fade ${visible[id] ? "in" : ""}`,
+  });
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#050508",
-        color: "#e8e6f0",
-        fontFamily:
-          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        overflowX: "hidden",
-      }}
-    >
+    <div className="app">
       <style>{`
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #050508; }
-        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 2px; }
-
-        .nav-link {
-          color: #888;
-          text-decoration: none;
-          font-size: 0.8rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          transition: 0.2s;
-          position: relative;
+        *{box-sizing:border-box;margin:0;padding:0}
+        html{scroll-behavior:smooth}
+        :root{
+          --bg:#07070c; --bg2:#0b0b14; --card:#0e0e18; --line:#1c1c2e;
+          --text:#ecebf5; --muted:#9a9ab0; --dim:#6b6b82; --accent:#6366f1; --accent2:#818cf8;
         }
-        .nav-link:hover { color: #e8e6f0; }
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: -4px; left: 0;
-          width: 0; height: 1px;
-          background: #6366f1;
-          transition: width 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
+        .app{min-height:100vh;background:var(--bg);color:var(--text);
+          font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;line-height:1.6}
+        a{color:inherit;text-decoration:none}
+        ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+        .wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+        section{padding:7rem 0;scroll-margin-top:60px}
+        .label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--accent2);margin-bottom:.9rem}
+        h2.title{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:3rem;line-height:1.15}
 
-        .fade-up {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-up.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        .fade{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+        .fade.in{opacity:1;transform:none}
 
-        .project-card {
-          background: #0c0c14;
-          border: 1px solid #1a1a2e;
-          border-radius: 2px;
-          padding: 2rem;
-          transition: all 0.3s;
-          position: relative;
-          overflow: hidden;
+        /* nav */
+        .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;border-bottom:1px solid transparent}
+        .nav.s{background:rgba(7,7,12,.88);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
+        .nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+        .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:-.02em}
+        .logo{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:grid;place-items:center;color:#fff;font-weight:900}
+        .links{display:flex;gap:2.2rem}
+        .nl{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:.2s}
+        .nl:hover{color:var(--text)}
+        .burger{display:none;background:none;border:0;color:var(--text);cursor:pointer}
+        .mobile{display:none}
+
+        /* buttons */
+        .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.6rem;border-radius:8px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:.2s;cursor:pointer;border:1px solid transparent}
+        .btn-p{background:var(--accent);color:#fff}.btn-p:hover{background:#4f46e5;transform:translateY(-2px)}
+        .btn-o{border-color:var(--line);color:var(--muted);background:transparent}.btn-o:hover{border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
+        .btn-sm{padding:.55rem 1.1rem;font-size:.7rem}
+
+        /* hero */
+        .hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:6.5rem 0 4rem;overflow:hidden}
+        .glow{position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.22),transparent 65%);top:-120px;right:-120px;pointer-events:none}
+        .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(99,102,241,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.04) 1px,transparent 1px);background-size:54px 54px;pointer-events:none;
+          mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+        .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:4rem;align-items:center;position:relative;z-index:1}
+        .status{display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;font-weight:600;color:var(--muted);border:1px solid var(--line);background:var(--card);padding:.4rem .9rem;border-radius:999px;margin-bottom:1.6rem}
+        .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+        h1.name{font-size:clamp(2.4rem,6.2vw,4.6rem);font-weight:900;line-height:1.05;letter-spacing:-.045em;margin-bottom:1.4rem}
+        .grad{background:linear-gradient(90deg,var(--accent),#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .lead{font-size:1.08rem;color:var(--muted);max-width:600px;margin-bottom:2.2rem;line-height:1.8}
+        .cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:2.6rem}
+        .stats{display:flex;flex-wrap:wrap;gap:2.5rem}
+        .stat b{display:block;font-size:1.9rem;font-weight:900;letter-spacing:-.02em}
+        .stat span{font-size:.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+        .photo-wrap{position:relative;justify-self:center;width:min(100%,340px)}
+        .photo-wrap::before{content:"";position:absolute;inset:-14px;border-radius:28px;background:linear-gradient(135deg,var(--accent),#8b5cf6 60%,transparent);opacity:.55;filter:blur(22px)}
+        .photo{position:relative;width:100%;aspect-ratio:4/5;border-radius:24px;object-fit:cover;object-position:center top;border:1px solid var(--line);background:var(--card);display:block}
+        .photo-fallback{display:grid;place-items:center;font-size:5rem;font-weight:900;color:var(--accent2)}
+
+        /* about */
+        .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:4rem}
+        .about p{color:var(--muted);font-size:1.05rem;line-height:1.9;margin-bottom:1.3rem}
+        .about p b{color:var(--text);font-weight:600}
+        .info{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:2rem}
+        .info-t{font-size:.72rem;font-weight:800;letter-spacing:.2em;color:var(--accent2);margin-bottom:1rem}
+        .row{display:flex;justify-content:space-between;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+        .row:last-child{border:0}
+        .row span:first-child{font-size:.72rem;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.08em;flex-shrink:0}
+        .row span:last-child{font-size:.9rem;color:var(--muted);text-align:right}
+
+        /* projects */
+        .alt{background:var(--bg2)}
+        .feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem;margin-bottom:5rem}
+        .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.9rem;display:flex;flex-direction:column;transition:.3s}
+        .card:hover{border-color:var(--accent);transform:translateY(-5px);box-shadow:0 18px 40px -22px rgba(99,102,241,.45)}
+        .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.6rem}
+        .num{font-size:.8rem;font-weight:900;color:var(--accent2)}
+        .icons{display:flex;gap:1rem;color:var(--dim)}
+        .icons a{transition:.2s}.icons a:hover{color:var(--accent2)}
+        .card h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.4rem}
+        .sub{font-size:.74rem;color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1.1rem}
+        .card p{color:var(--muted);font-size:.93rem;line-height:1.7;margin-bottom:1.2rem}
+        .hl{list-style:none;margin-bottom:1.3rem}
+        .hl li{font-size:.84rem;color:var(--text);opacity:.8;margin-bottom:.35rem;display:flex;gap:.55rem}
+        .hl li::before{content:"▸";color:var(--accent2)}
+        .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto;padding-bottom:1.3rem}
+        .tag{font-size:.7rem;color:var(--muted);border:1px solid var(--line);padding:.28rem .65rem;border-radius:6px;font-weight:600;background:var(--bg)}
+        .card-cta{display:flex;gap:.7rem;flex-wrap:wrap}
+        .more-t{font-size:1.1rem;font-weight:800;margin-bottom:1.6rem;letter-spacing:-.01em}
+        .more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+        .more .card h3{font-size:1.2rem}
+
+        /* experience */
+        .tl{border-left:1px solid var(--line);padding-left:2.2rem;margin-left:.4rem}
+        .job{position:relative;margin-bottom:3.2rem}
+        .job:last-child{margin-bottom:0}
+        .job::before{content:"";position:absolute;left:calc(-2.2rem - 5px);top:.55rem;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(99,102,241,.2)}
+        .job-h{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.8rem;margin-bottom:1rem}
+        .job h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em}
+        .co{color:var(--accent2);font-weight:700;margin-top:.15rem}
+        .per{font-size:.8rem;color:var(--muted);font-weight:700;background:var(--card);padding:.4rem .9rem;border:1px solid var(--line);border-radius:999px}
+        .job ul{list-style:none}
+        .job li{color:var(--muted);margin-bottom:.8rem;line-height:1.75;display:flex;gap:.9rem}
+        .job li::before{content:"";width:6px;height:1px;background:var(--accent2);margin-top:.85rem;flex-shrink:0}
+
+        /* skills */
+        .sk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem}
+        .sk h3{font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.1rem}
+        .sk-l{display:flex;flex-wrap:wrap;gap:.55rem}
+        .skill{font-size:.78rem;color:var(--muted);border:1px solid var(--line);background:var(--card);padding:.4rem .85rem;border-radius:8px;transition:.2s}
+        .skill:hover{border-color:var(--accent);color:var(--text)}
+
+        /* certs */
+        .certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem}
+        .cert{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.4rem;color:var(--muted);font-size:.92rem}
+        .cert svg{color:var(--accent2);flex-shrink:0}
+
+        /* contact */
+        .contact{text-align:center}
+        .contact h2{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:1.5rem}
+        .contact p{color:var(--muted);font-size:1.1rem;max-width:560px;margin:0 auto 2.8rem;line-height:1.8}
+        .contact-cta{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
+        footer{padding:2.5rem 0;border-top:1px solid var(--line);text-align:center;font-size:.76rem;color:var(--dim);font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+
+        /* tablet */
+        @media (max-width:1000px){
+          .feat,.more,.certs{grid-template-columns:repeat(2,minmax(0,1fr))}
+          .sk{grid-template-columns:repeat(2,minmax(0,1fr))}
+          .about-grid{grid-template-columns:1fr;gap:2.5rem}
         }
-        .project-card:hover { border-color: #6366f1; transform: translateY(-5px); box-shadow: 0 10px 30px -15px rgba(99,102,241,0.2); }
-
-        .skill-tag {
-          display: inline-block;
-          padding: 0.4rem 0.9rem;
-          border: 1px solid #1a1a2e;
-          background: #050508;
-          font-size: 0.75rem;
-          color: #888;
-          transition: 0.2s;
+        /* mobile */
+        @media (max-width:820px){
+          section{padding:5rem 0}
+          .links,.nav .btn-hire{display:none}
+          .burger{display:block}
+          .mobile{display:flex;flex-direction:column;gap:1.1rem;padding:1.2rem 1.5rem 1.6rem;background:rgba(7,7,12,.97);border-bottom:1px solid var(--line)}
+          .hero{padding-top:6rem}
+          .hero-grid{grid-template-columns:1fr;gap:2.6rem}
+          .photo-wrap{order:-1;width:min(70%,250px);justify-self:start}
+          .lead{font-size:1rem}
         }
-        .skill-tag:hover { border-color: #6366f1; color: #f0eeff; }
-
-        .btn-primary {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.6rem;
-          padding: 0.9rem 2.2rem;
-          background: #6366f1;
-          color: white;
-          font-size: 0.8rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          text-decoration: none;
-          transition: 0.2s;
-        }
-        .btn-primary:hover { background: #4f46e5; transform: translateY(-2px); }
-
-        .btn-outline {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.6rem;
-          padding: 0.9rem 2.2rem;
-          border: 1px solid #1a1a2e;
-          color: #888;
-          font-size: 0.8rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          text-decoration: none;
-          transition: 0.2s;
-        }
-        .btn-outline:hover { border-color: #6366f1; color: #f0eeff; transform: translateY(-2px); }
-
-        .section-label {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.3em;
-          text-transform: uppercase;
-          color: #6366f1;
-          margin-bottom: 1.5rem;
-          display: block;
-        }
-
-        .cursor { animation: blink 1s step-end infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-
-        .grid-pattern {
-          position: absolute;
-          inset: 0;
-          background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
-          background-size: 50px 50px;
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        .exp-dot {
-          width: 9px;
-          height: 9px;
-          background: #6366f1;
-          position: absolute;
-          left: -5px;
-          top: 0;
+        @media (max-width:640px){
+          .feat,.more,.certs,.sk{grid-template-columns:1fr}
+          .tl{padding-left:1.5rem}
+          .job::before{left:calc(-1.5rem - 5px)}
+          .stats{gap:1.6rem}
+          .btn{padding:.75rem 1.3rem}
+          .row{flex-direction:column;gap:.15rem}
+          .row span:last-child{text-align:left}
         }
       `}</style>
 
-      {/* Navigation */}
-      <nav
-        style={{
-          position: "fixed",
-          top: 0,
-          width: "100%",
-          zIndex: 100,
-          background: scrollY > 50 ? "rgba(5,5,8,0.95)" : "transparent",
-          borderBottom:
-            scrollY > 50 ? "1px solid #1a1a2e" : "1px solid transparent",
-          transition: "0.3s",
-          backdropFilter: scrollY > 50 ? "blur(10px)" : "none",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            padding: "0 2rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: 80,
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <div
-              style={{
-                width: 34,
-                height: 34,
-                background: "#6366f1",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 900,
-                color: "white",
-              }}
-            >
-              Z
-            </div>
-            <span
-              style={{
-                fontWeight: 800,
-                fontSize: "1.2rem",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Muhammad Zain
-            </span>
-          </div>
-          <div style={{ display: "flex", gap: "3rem" }}>
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="nav-link"
-              >
-                {item}
+      {/* NAV */}
+      <nav className={`nav ${scrolled || menuOpen ? "s" : ""}`}>
+        <div className="wrap nav-in">
+          <a href="#top" className="brand">
+            <span className="logo">Z</span>
+            <span>Muhammad Zain</span>
+          </a>
+          <div className="links">
+            {navItems.map((n) => (
+              <a key={n} href={`#${n.toLowerCase()}`} className="nl">
+                {n}
               </a>
             ))}
           </div>
           <a
             href="mailto:zc19398@gmail.com"
-            className="btn-primary"
-            style={{ padding: "0.6rem 1.4rem", fontSize: "0.7rem" }}
+            className="btn btn-p btn-sm btn-hire"
           >
             Hire Me
           </a>
+          <button
+            className="burger"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+        {menuOpen && (
+          <div className="mobile">
+            {navItems.map((n) => (
+              <a
+                key={n}
+                href={`#${n.toLowerCase()}`}
+                className="nl"
+                onClick={() => setMenuOpen(false)}
+              >
+                {n}
+              </a>
+            ))}
+            <a
+              href="mailto:zc19398@gmail.com"
+              className="btn btn-p btn-sm"
+              style={{ alignSelf: "flex-start" }}
+            >
+              Hire Me
+            </a>
+          </div>
+        )}
       </nav>
 
-      {/* Hero */}
-      <section
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          position: "relative",
-          padding: "0 2rem",
-          overflow: "hidden",
-        }}
-      >
-        <div className="grid-pattern" />
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            width: "100%",
-            paddingTop: 80,
-            position: "relative",
-            zIndex: 1,
-          }}
-        >
-          <span className="section-label">Data Science & AI Engineering</span>
-          <h1
-            style={{
-              fontSize: "clamp(3rem, 10vw, 6.5rem)",
-              fontWeight: 900,
-              lineHeight: 1.05,
-              marginBottom: "2rem",
-              letterSpacing: "-0.05em",
-            }}
-          >
-            Data Scientist &<br />
-            <span style={{ color: "#6366f1" }}>ML Engineer</span>
-            <span className="cursor">_</span>
-          </h1>
-          <p
-            style={{
-              fontSize: "1.15rem",
-              color: "#888",
-              lineHeight: 1.8,
-              maxWidth: 620,
-              marginBottom: "3.5rem",
-            }}
-          >
-            Last-semester AI student at COMSATS Lahore. Specializing in
-            end-to-end ML pipelines, Agentic AI architectures, and turning raw
-            data into actionable business intelligence.
-          </p>
+      {/* HERO */}
+      <header id="top" className="hero">
+        <div className="grid-bg" />
+        <div className="glow" />
+        <div className="wrap hero-grid">
+          <div>
+            <div className="status">
+              <span className="dot" /> Open to AI/ML Engineer and Data Scientist
+              roles
+            </div>
+            <h1 className="name">
+              Machine Learning Engineer
+              <br />
+              &amp; <span className="grad">Data Scientist</span>
+            </h1>
+            <p className="lead">
+              I design, train, and deploy machine learning and LLM-powered
+              systems end to end, from data analysis and feature engineering to
+              production APIs that solve real business problems.
+            </p>
+            <div className="cta">
+              <a href="#projects" className="btn btn-p">
+                View Projects <ArrowUpRight size={16} />
+              </a>
+              <a href="mailto:zc19398@gmail.com" className="btn btn-o">
+                Contact Me
+              </a>
+              <a href="/Muhammad_Zain_CV.pdf" download className="btn btn-o">
+                <Download size={16} /> Resume
+              </a>
+            </div>
+            <div className="stats">
+              <div className="stat">
+                <b>1.5+</b>
+                <span>Years Building ML</span>
+              </div>
+              <div className="stat">
+                <b>8</b>
+                <span>End-to-End Projects</span>
+              </div>
+              <div className="stat">
+                <b>3</b>
+                <span>Industry Internships</span>
+              </div>
+            </div>
+          </div>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "1.5rem",
-              alignItems: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <a href="#projects" className="btn-primary">
-              View Portfolio <ArrowUpRight size={18} />
-            </a>
-            <a href="mailto:zc19398@gmail.com" className="btn-outline">
-              Contact Me
-            </a>
+          <div className="photo-wrap">
+            {photoOk ? (
+              <img
+                src={PHOTO}
+                alt="Muhammad Zain"
+                className="photo"
+                onError={() => setPhotoOk(false)}
+              />
+            ) : (
+              <div className="photo photo-fallback">MZ</div>
+            )}
+          </div>
+        </div>
+      </header>
 
-            <div
-              style={{
-                background: "#0c0c14",
-                border: "1px solid #1a1a2e",
-                padding: "0.8rem 1.5rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "1.5rem",
-              }}
-            >
-              <span
-                style={{ fontWeight: 900, fontSize: "2rem", color: "#6366f1" }}
-              >
-                10+
-              </span>
-              <span
-                style={{
-                  fontSize: "0.7rem",
-                  color: "#555",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  lineHeight: 1.3,
-                }}
-              >
-                ML & DS Projects
-                <br />
-                Completed
-              </span>
+      {/* ABOUT */}
+      <section id="about">
+        <div className="wrap about-grid about">
+          <div {...fade("about-l")}>
+            <span className="label">Profile</span>
+            <h2 className="title">Engineering intelligence from data</h2>
+            <p>
+              I work across the full machine learning lifecycle: rigorous{" "}
+              <b>exploratory analysis and feature engineering</b>, model
+              benchmarking and evaluation, and{" "}
+              <b>deployment as production APIs</b>. A model is only as strong as
+              the insight behind its features.
+            </p>
+            <p>
+              My current focus is <b>LLM and agentic systems</b>, using
+              LangChain and LangGraph to build tool-calling agents and stateful
+              workflows such as Diet Mind and EduRoute, alongside classical ML
+              work on tabular and text data.
+            </p>
+          </div>
+          <div {...fade("about-r")} style={{ transitionDelay: ".15s" }}>
+            <div className="info">
+              <div className="info-t">DETAILS</div>
+              {[
+                ["Name", "Muhammad Zain"],
+                ["Location", "Lahore, Pakistan"],
+                ["Focus", "Machine Learning, NLP, Generative AI"],
+                [
+                  "Education",
+                  "BS Artificial Intelligence, COMSATS Lahore (2027)",
+                ],
+                ["Email", "zc19398@gmail.com"],
+                ["Phone", "+92 336 0453765"],
+              ].map(([k, v]) => (
+                <div className="row" key={k}>
+                  <span>{k}</span>
+                  <span>{v}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" style={{ padding: "12rem 2rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.2fr 0.8fr",
-              gap: "6rem",
-            }}
-          >
-            <div
-              id="about-l"
-              data-animate
-              className={`fade-up ${visible["about-l"] ? "visible" : ""}`}
-            >
-              <span className="section-label">Profile</span>
-              <h2
-                style={{
-                  fontSize: "3.5rem",
-                  fontWeight: 800,
-                  marginBottom: "3rem",
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                Engineering Intelligence
-              </h2>
-              <p
-                style={{
-                  color: "#888",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.9,
-                  marginBottom: "1.5rem",
-                }}
-              >
-                I specialize in the full lifecycle of data, from rigorous
-                Exploratory Data Analysis (EDA) and feature engineering to
-                deploying production-grade Machine Learning models. I believe
-                that a model is only as strong as the data insights that precede
-                it.
-              </p>
-              <p
-                style={{
-                  color: "#888",
-                  fontSize: "1.15rem",
-                  lineHeight: 1.9,
-                  marginBottom: "3rem",
-                }}
-              >
-                My current focus is on **Agentic AI workflows**, utilizing
-                **LangGraph** to build stateful, multi-agent systems like **Diet
-                Mind**. By combining deep Data Science foundations with
-                iterative agentic logic, I build AI that doesn't just predict,
-                but reasons and acts.
-              </p>
-              <div style={{ display: "flex", gap: "4rem" }}>
-                <div>
-                  <div
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: 900,
-                      color: "#f0eeff",
-                    }}
-                  >
-                    3.35
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "0.75rem",
-                      color: "#555",
-                      textTransform: "uppercase",
-                      fontWeight: 700,
-                      marginTop: "0.5rem",
-                    }}
-                  >
-                    Current CGPA
-                  </div>
-                </div>
-                <div>
-                  <div
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: 900,
-                      color: "#f0eeff",
-                    }}
-                  >
-                    02 Mo
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "0.75rem",
-                      color: "#555",
-                      textTransform: "uppercase",
-                      fontWeight: 700,
-                      marginTop: "0.5rem",
-                    }}
-                  >
-                    Remote Internship
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* PROJECTS */}
+      <section id="projects" className="alt">
+        <div className="wrap">
+          <span className="label">Selected Work</span>
+          <h2 className="title">Featured projects</h2>
 
-            <div
-              id="about-r"
-              data-animate
-              className={`fade-up ${visible["about-r"] ? "visible" : ""}`}
-              style={{ transitionDelay: "0.2s" }}
-            >
-              <div
-                style={{
-                  background: "#0c0c14",
-                  border: "1px solid #1a1a2e",
-                  padding: "3rem",
-                }}
-              >
-                <div
-                  style={{
-                    color: "#6366f1",
-                    fontWeight: 800,
-                    fontSize: "0.8rem",
-                    marginBottom: "2rem",
-                    letterSpacing: "0.1em",
-                  }}
-                >
-                  BIO DATA
-                </div>
-                {[
-                  { k: "Full Name", v: "Muhammad Zain" },
-                  { k: "Location", v: "Lahore, Pakistan" },
-                  { k: "University", v: "COMSATS Lahore" },
-                  { k: "Specialization", v: "Data Science, ML, Agentic AI" },
-                  { k: "Contact No", v: "+92 336 0453765" },
-                  { k: "Email", v: "zc19398@gmail.com" },
-                ].map((item, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      padding: "1.2rem 0",
-                      borderBottom: i < 5 ? "1px solid #1a1a2e" : "none",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: "1rem",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: "0.8rem",
-                        color: "#444",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                      }}
+          <div className="feat">
+            {featured.map((p) => (
+              <article className="card" key={p.num}>
+                <div className="card-top">
+                  <span className="num">{p.num}</span>
+                  <div className="icons">
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${p.title} source code`}
                     >
-                      {item.k}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: "0.9rem",
-                        color: "#888",
-                        textAlign: "right",
-                      }}
+                      <Github size={20} />
+                    </a>
+                    <a
+                      href={p.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${p.title} live demo`}
                     >
-                      {item.v}
-                    </span>
+                      <ExternalLink size={20} />
+                    </a>
                   </div>
-                ))}
-              </div>
-            </div>
+                </div>
+                <h3>{p.title}</h3>
+                <div className="sub">{p.subtitle}</div>
+                <p>{p.description}</p>
+                <ul className="hl">
+                  {p.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
+                <div className="tags">
+                  {p.tech.map((t) => (
+                    <span className="tag" key={t}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="card-cta">
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-p btn-sm"
+                  >
+                    Live Demo <ArrowUpRight size={14} />
+                  </a>
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-o btn-sm"
+                  >
+                    <Github size={14} /> Code
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <h3 className="more-t">More projects</h3>
+          <div className="more">
+            {moreProjects.map((p) => (
+              <article className="card" key={p.title}>
+                <div className="card-top">
+                  <span className="num">{p.live ? "Live" : "Code"}</span>
+                  <div className="icons">
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${p.title} source code`}
+                    >
+                      <Github size={20} />
+                    </a>
+                    {p.live && (
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${p.title} live demo`}
+                      >
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <h3>{p.title}</h3>
+                <div className="sub">{p.subtitle}</div>
+                <p>{p.description}</p>
+                <div className="tags" style={{ paddingBottom: 0 }}>
+                  {p.tech.map((t) => (
+                    <span className="tag" key={t}>
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Experience */}
-      <section
-        id="experience"
-        style={{ padding: "12rem 2rem", background: "#080810" }}
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Trajectory</span>
-          <h2
-            style={{
-              fontSize: "3.5rem",
-              fontWeight: 800,
-              marginBottom: "6rem",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            Experience
-          </h2>
-          {experience.map((exp, i) => (
-            <div
-              key={i}
-              className="fade-up visible"
-              style={{
-                borderLeft: "1px solid #1a1a2e",
-                paddingLeft: "4rem",
-                position: "relative",
-              }}
-            >
-              <div className="exp-dot" />
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  marginBottom: "2.5rem",
-                  flexWrap: "wrap",
-                  gap: "1rem",
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: 900,
-                      color: "#f0eeff",
-                    }}
-                  >
-                    {exp.role}
-                  </h3>
-                  <div
-                    style={{
-                      color: "#6366f1",
-                      fontWeight: 800,
-                      fontSize: "1.1rem",
-                      marginTop: "0.5rem",
-                    }}
-                  >
-                    {exp.company}
+      {/* EXPERIENCE */}
+      <section id="experience">
+        <div className="wrap">
+          <span className="label">Experience</span>
+          <h2 className="title">Professional experience</h2>
+          <div className="tl">
+            {experience.map((e) => (
+              <div className="job" key={e.role + e.company}>
+                <div className="job-h">
+                  <div>
+                    <h3>{e.role}</h3>
+                    <div className="co">{e.company}</div>
                   </div>
+                  <span className="per">{e.period}</span>
                 </div>
-                <div
-                  style={{
-                    fontSize: "0.9rem",
-                    color: "#444",
-                    fontWeight: 800,
-                    background: "#0c0c14",
-                    padding: "0.5rem 1rem",
-                    border: "1px solid #1a1a2e",
-                  }}
-                >
-                  {exp.period}
-                </div>
+                <ul>
+                  {e.points.map((p) => (
+                    <li key={p}>{p}</li>
+                  ))}
+                </ul>
               </div>
-              <ul style={{ listStyle: "none" }}>
-                {exp.achievements.map((a, j) => (
-                  <li
-                    key={j}
-                    style={{
-                      color: "#888",
-                      marginBottom: "1.5rem",
-                      lineHeight: 1.8,
-                      fontSize: "1.05rem",
-                      display: "flex",
-                      gap: "1.5rem",
-                    }}
-                  >
-                    <span style={{ color: "#6366f1", fontWeight: 900 }}>—</span>{" "}
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Skills */}
-      <section id="skills" style={{ padding: "12rem 2rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Toolkit</span>
-          <h2
-            style={{
-              fontSize: "3.5rem",
-              fontWeight: 800,
-              marginBottom: "6rem",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            Competencies
-          </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "3rem",
-            }}
-          >
-            {Object.entries(skills).map(([cat, list], i) => (
-              <div key={i}>
-                <h3
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: 900,
-                    marginBottom: "2rem",
-                    color: "#f0eeff",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  {cat}
-                </h3>
-                <div
-                  style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}
-                >
+      {/* SKILLS */}
+      <section id="skills" className="alt">
+        <div className="wrap">
+          <span className="label">Toolkit</span>
+          <h2 className="title">Technical skills</h2>
+          <div className="sk">
+            {Object.entries(skills).map(([cat, list]) => (
+              <div key={cat}>
+                <h3>{cat}</h3>
+                <div className="sk-l">
                   {list.map((s) => (
-                    <span key={s} className="skill-tag">
+                    <span className="skill" key={s}>
                       {s}
                     </span>
                   ))}
@@ -876,303 +695,67 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects */}
-      <section
-        id="projects"
-        style={{ padding: "12rem 2rem", background: "#080810" }}
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Works</span>
-          <h2
-            style={{
-              fontSize: "3.5rem",
-              fontWeight: 800,
-              marginBottom: "6rem",
-              letterSpacing: "-0.03em",
-            }}
-          >
-            Selected Portfolio
-          </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: "2.5rem",
-            }}
-          >
-            {projects.map((p, i) => (
-              <div key={i} className="project-card">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: "2.5rem",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "0.8rem",
-                      fontWeight: 900,
-                      color: p.color,
-                    }}
-                  >
-                    {p.num}
-                  </span>
-                  <div style={{ display: "flex", gap: "1.25rem" }}>
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${p.title} code on GitHub`}
-                      style={{ color: "#444", transition: "0.2s" }}
-                      onMouseOver={(e) =>
-                        (e.currentTarget.style.color = "#6366f1")
-                      }
-                      onMouseOut={(e) => (e.currentTarget.style.color = "#444")}
-                    >
-                      <Github size={20} />
-                    </a>
-                    {(p.demo || p.live) && (
-                      <a
-                        href={p.demo || p.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: "#444", transition: "0.2s" }}
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style.color = "#6366f1")
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style.color = "#444")
-                        }
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-                <h3
-                  style={{
-                    fontSize: "1.7rem",
-                    fontWeight: 900,
-                    marginBottom: "0.6rem",
-                    color: "#f0eeff",
-                  }}
-                >
-                  {p.title}
-                </h3>
-                <div
-                  style={{
-                    fontSize: "0.8rem",
-                    color: p.color,
-                    fontWeight: 800,
-                    marginBottom: "1.5rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  {p.subtitle}
-                </div>
-                <p
-                  style={{
-                    color: "#666",
-                    fontSize: "0.95rem",
-                    lineHeight: 1.7,
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  {p.description}
-                </p>
-
-                <div style={{ marginBottom: "1.5rem" }}>
-                  {p.highlights.map((h, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        fontSize: "0.85rem",
-                        color: "#444",
-                        marginBottom: "0.4rem",
-                        fontWeight: 600,
-                      }}
-                    >
-                      <span style={{ color: p.color, marginRight: "0.5rem" }}>
-                        ▸
-                      </span>{" "}
-                      {h}
-                    </div>
-                  ))}
-                </div>
-
-                <div
-                  style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}
-                >
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        fontSize: "0.7rem",
-                        color: "#444",
-                        border: "1px solid #1a1a2e",
-                        padding: "0.3rem 0.7rem",
-                        fontWeight: 700,
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+      {/* CERTIFICATIONS */}
+      <section>
+        <div className="wrap">
+          <span className="label">Credentials</span>
+          <h2 className="title">Certifications</h2>
+          <div className="certs">
+            {certifications.map((c) => (
+              <div className="cert" key={c}>
+                <Award size={20} />
+                <span>{c}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Certifications */}
-      <section style={{ padding: "10rem 2rem" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Validation</span>
-          <h2
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: 800,
-              marginBottom: "5rem",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Professional Certifications
+      {/* CONTACT */}
+      <section id="contact" className="alt contact">
+        <div className="wrap">
+          <span className="label">Contact</span>
+          <h2>
+            Let's build reliable
+            <br />
+            <span className="grad">ML systems</span> together.
           </h2>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-              gap: "1.5rem",
-            }}
-          >
-            {certifications.map((c, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: "2rem",
-                  border: "1px solid #1a1a2e",
-                  display: "flex",
-                  gap: "1.5rem",
-                  alignItems: "center",
-                  background: "#0c0c14",
-                }}
-              >
-                <Award size={22} style={{ color: "#6366f1", flexShrink: 0 }} />
-                <span
-                  style={{
-                    fontSize: "0.95rem",
-                    color: "#888",
-                    fontWeight: 500,
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {c}
-                </span>
-              </div>
-            ))}
+          <p>
+            I'm looking for AI/ML Engineer and Data Scientist roles where I can
+            contribute to model development, deployment, and LLM-based products.
+          </p>
+          <div className="contact-cta">
+            <a href="mailto:zc19398@gmail.com" className="btn btn-p">
+              <Mail size={16} /> zc19398@gmail.com
+            </a>
+            <a href="tel:+923360453765" className="btn btn-o">
+              <Phone size={16} /> +92 336 0453765
+            </a>
+            <a
+              href="https://www.linkedin.com/in/muhammad-zain-9710692b4"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-o"
+            >
+              <Linkedin size={16} /> LinkedIn
+            </a>
+            <a
+              href="https://github.com/Zainch032"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-o"
+            >
+              <Github size={16} /> GitHub
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section
-        id="contact"
-        style={{
-          padding: "12rem 2rem",
-          textAlign: "center",
-          position: "relative",
-        }}
-      >
-        <span className="section-label">Get In Touch</span>
-        <h2
-          style={{
-            fontSize: "clamp(3rem, 8vw, 5.5rem)",
-            fontWeight: 900,
-            marginBottom: "2.5rem",
-            letterSpacing: "-0.05em",
-            lineHeight: 1.1,
-          }}
-        >
-          Let's build the
-          <br />
-          <span style={{ color: "#6366f1" }}>future of AI</span> together.
-        </h2>
-        <p
-          style={{
-            color: "#666",
-            fontSize: "1.2rem",
-            marginBottom: "4.5rem",
-            maxWidth: 550,
-            margin: "0 auto 4.5rem",
-            lineHeight: 1.8,
-          }}
-        >
-          I am actively seeking Junior Data Science and AI Engineering 
-          opportunities where I can apply my skills in NLP and end-to-end ML
-          pipelines.
-        </p>
-        <div
-          style={{
-            display: "flex",
-            gap: "1.5rem",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <a href="mailto:zc19398@gmail.com" className="btn-primary">
-            <Mail size={18} /> zc19398@gmail.com
-          </a>
-          <a href="tel:+923360453765" className="btn-outline">
-            <Phone size={18} /> +923360453765
-          </a>
-          <a
-            href="https://www.linkedin.com/in/muhammad-zain-9710692b4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-          >
-            <Linkedin size={18} /> LinkedIn
-          </a>
-          <a
-            href="https://github.com/Zainch032"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-outline"
-          >
-            <Github size={18} /> GitHub
-          </a>
+      <footer>
+        <div className="wrap">
+          <MapPin size={12} style={{ verticalAlign: "-1px", marginRight: 6 }} />
+          Lahore, Pakistan &nbsp;|&nbsp; © 2026 Muhammad Zain
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer
-        style={{
-          padding: "6rem 2rem",
-          borderTop: "1px solid #1a1a2e",
-          textAlign: "center",
-          background: "#050508",
-        }}
-      >
-        <div style={{ marginBottom: "2rem", opacity: 0.5 }}>
-          <div
-            style={{ fontWeight: 900, fontSize: "1.5rem", color: "#6366f1" }}
-          >
-            ZAIN.
-          </div>
-        </div>
-        <p
-          style={{
-            fontSize: "0.85rem",
-            color: "#333",
-            fontWeight: 800,
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-          }}
-        >
-          © 2026 MUHAMMAD ZAIN / AI ENGINEER & DATA SCIENTIST
-        </p>
       </footer>
     </div>
   );
