@@ -45,7 +45,7 @@ const featuredProjects = [
     ],
     tech: ["Python", "Pandas", "Scikit-learn", "Streamlit", "Seaborn"],
     github: "https://github.com/Zainch032/Job-skill-recommender",
-    live: "https://job-skill-recommender-032.streamlit.app/",
+    live: "https://job-skill-recommender-hhbxbhg3eshfa0gm.eastasia-01.azurewebsites.net/",
   },
   {
     num: "03",
