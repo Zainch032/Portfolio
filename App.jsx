@@ -663,11 +663,10 @@ function CompactCopyEmail({ onCopied }) {
   );
 }
 
-function Header({ theme, setTheme, onToast }) {
+function Header({ theme, setTheme, onToast, home = true }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const home = window.location.pathname === "/";
 
   useEffect(() => {
     const updateScroll = () => {
@@ -957,11 +956,95 @@ function CaseSection({ id, title, children }) {
   return <MotionReveal as="section" className="case-section" id={id}><p className="eyebrow">{String(caseStudySections.findIndex((section) => section.id === id) + 1).padStart(2, "0")}</p><h2>{title}</h2>{children}</MotionReveal>;
 }
 
+function getProjectSlug(pathname) {
+  if (!pathname) return null;
+  const match = pathname.match(/\/projects\/([^\/#?]+)/);
+  if (match) return match[1];
+
+  if (typeof window !== "undefined" && window.location.hash) {
+    const hashMatch = window.location.hash.match(/\/projects\/([^\/#?]+)/);
+    if (hashMatch) return hashMatch[1];
+  }
+  return null;
+}
+
 function App() {
   const [theme, setTheme] = useTheme();
   const [toast, setToast] = useState("");
-  const path = window.location.pathname.replace(/\/+$/, "");
-  const projectSlug = path.startsWith("/projects/") ? path.split("/")[2] : null;
+  const [currentPath, setCurrentPath] = useState(() =>
+    typeof window !== "undefined" ? window.location.pathname + window.location.search + window.location.hash : "/"
+  );
+
+  useEffect(() => {
+    const onPopState = () => {
+      setCurrentPath(window.location.pathname + window.location.search + window.location.hash);
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
+    const handleAnchorClick = (event) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+      const anchor = event.target.closest("a");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href");
+      if (!href) return;
+
+      if (
+        href.startsWith("mailto:") ||
+        href.startsWith("tel:") ||
+        href.startsWith("http://") ||
+        href.startsWith("https://") ||
+        anchor.target === "_blank"
+      ) {
+        return;
+      }
+
+      if (href.startsWith("#")) {
+        return;
+      }
+
+      if (
+        href.startsWith("/projects/") ||
+        href === "/" ||
+        href.startsWith("/#") ||
+        href.includes("/projects/")
+      ) {
+        event.preventDefault();
+        window.history.pushState(null, "", href);
+        setCurrentPath(window.location.pathname + window.location.search + window.location.hash);
+
+        if (href.includes("#")) {
+          const hashId = href.split("#")[1];
+          setTimeout(() => {
+            const el = document.getElementById(hashId);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+            } else {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }, 60);
+        } else {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+    return () => document.removeEventListener("click", handleAnchorClick);
+  }, []);
+
+  const projectSlug = getProjectSlug(currentPath);
   const project = allProjects.find((item) => item.slug === projectSlug);
 
   useEffect(() => {
@@ -982,7 +1065,7 @@ function App() {
 
   return (
     <>
-      <Header theme={theme} setTheme={setTheme} onToast={() => showToast("Email copied to clipboard")} />
+      <Header theme={theme} setTheme={setTheme} onToast={() => showToast("Email copied to clipboard")} home={!project} />
       {project ? <CaseStudyPage project={project} /> : <HomePage onToast={() => showToast("Email copied to clipboard")} />}
       {toast && <div className="toast" role="status"><Check size={15} /> {toast}</div>}
     </>
